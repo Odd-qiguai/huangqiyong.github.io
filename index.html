@@ -39,24 +39,19 @@
 							<p>Secondary NameNode 不是NameNode的热备，是把NameNode对fsimage的编辑操作，放到Secondary NameNode节点处理。Secondary NameNode会自己定期合并fsimage文件的编辑日志，把文件需要合并的操作，控制在一定数量级别。Secondary NameNode 通常运行在单独的节点上。</p>
 							<p>Secondary NameNode保存最新检查点的目录与NameNode的目录结构相同,NameNode重启之后可以直接读取Secondary NameNode的目录结构和检查点镜像。</p>
 							<p>如果NameNode的历史检查点丢失，edits文件也都丢失了，NameNode可以引入这个最新的检查点。但需要配置hdfs的配置文件如下：</p>
-							<p>dfs.name.dir设置个文件夹，集群上为：/opt/dfs/nn，也可以为空。</p>
-							<img src="images/period.jpg" alt="period" />
-							<p>HDFS 检查点目录 fs.checkpoint.dir, dfs.namenode.checkpoint.dir 设置为：/opt/dfs/snn</p>
-							<img src="images/dir.jpg" alt="dir" />
-							<p>启NameNode，启动命令行加上-importCheckpoint</p>
+							<p>1、dfs.name.dir设置个文件夹，集群上为：/opt/dfs/nn，也可以为空。</p>
+							<div><img src="images/Secondary NameNode/period.jpg" alt="" /></span></div>
+							<p>2、HDFS 检查点目录 fs.checkpoint.dir, dfs.namenode.checkpoint.dir 设置为：/opt/dfs/snn</p>
+							<div><img src="images/Secondary NameNode/dir.jpg" alt="" /></span></div>
+							<p>3、启NameNode，启动命令行加上-importCheckpoint  ./hadoop-daemon.sh start namenode -importCheckpoint </p>
 
 							</p>
 							<hr />
 							<h5>Code</h5>
-							<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+							<pre>
+								<code>i = 0
+								</code>
+							</pre>	
 						</section>
 
 						<section>
