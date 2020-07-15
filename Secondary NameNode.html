@@ -16,20 +16,33 @@
             <img src="images/avatar.jpg" alt="" /></a>
         <h1>
             <strong>I am HuangQiYong</strong>
+            <br />
+            <br />
+            <a href="http://html5up.net"></a>
 		</h1>
     </div>
-    <base target="_blank" />
-	<style type="text/css">
-	a {color:blue}
-	</style>
 </header>
 <!-- Main -->
 <div id="main">
     <!-- One -->
     <section id="One">
-        <a href="./Secondary NameNode.html" >NameNode 和 Secondary NameNode差别</a>
+        <h2>NameNode 和 Secondary NameNode差别</h2>
         <section>
-            <p>NameNode主要作用是存储源数据信息到hdfs上，可以加载在内存也可以写在HDFS上。NameNode重启时，会从一个fsimage文件中读取hdfs状态，然后接着文件里<a href="./Secondary NameNode.html">的edits .....</a>
+            <h4>组件作用</h4>
+            <p>NameNode主要作用是存储源数据信息到hdfs上，可以加载在内存也可以写在HDFS上。NameNode重启时，会从一个fsimage文件中读取hdfs状态，然后接着文件里的edits操作，将hdfs返回fsimage文件中。
+            <p>Secondary NameNode 不是NameNode的热备，是把NameNode对fsimage的编辑操作，放到Secondary NameNode节点处理。Secondary NameNode会自己定期合并fsimage文件的编辑日志，把文件需要合并的操作，控制在一定数量级别。Secondary NameNode 通常运行在单独的节点上。</p>
+            <p>Secondary NameNode保存最新检查点的目录与NameNode的目录结构相同,NameNode重启之后可以直接读取Secondary NameNode的目录结构和检查点镜像。</p>
+            <p>如果NameNode的历史检查点丢失，edits文件也都丢失了，NameNode可以引入这个最新的检查点。但需要配置hdfs的配置文件如下：</p>
+            <p>1、dfs.name.dir设置个文件夹，集群上为：/opt/dfs/nn，也可以为空。</p>
+            <p>2、文件系统检查点周期设置为1小时左右。确保要edit的操作在一定范围内。</p>
+            <div>
+                <img src="images/Secondary NameNode/period.jpg" alt="" /></span>
+            </div>
+            <p>3、HDFS 检查点目录 fs.checkpoint.dir, dfs.namenode.checkpoint.dir 设置为：/opt/dfs/snn</p>
+            <div>
+                <img src="images/Secondary NameNode/dir.jpg" alt="" /></span>
+            </div>
+            <p>4、启NameNode，启动命令行加上-importCheckpoint ./hadoop-daemon.sh start namenode -importCheckpoint</p>
             </p>
         </section>
         <!-- Two -->  
