@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="#" class="image avatar">
+            <img src="images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+            <br/>
+            <br/>
+        </h1>
+    </div>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>两数之和算法实践</h2>
+        <section>
+            <p>7月份开始刷LeetCode题目，对遇到的简单的算法题做个总结。本题才用for循环遍历可求解，但是耗时过大，经查看算法解答，参考答案使用HashMap遍历一次可得结果，效率上大大提高。</p>
+            <h3><strong>算法要求：给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</strong></h3>
+            <h4>for循环遍历2次</h4>
+            <p>使用双重for循环遍历求解，遍历了所有的数组元素，时间复杂度：O(n^2)，空间复杂度：O(1)<br>
+                执行用时：76 ms，内存消耗：40 MB</p>
+            <pre><code>class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] == target - nums[i]) {
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+}</code></pre>
+        </section>
+        <h4>使用哈希表遍历一次</h4>
+        <p>使用HashMap，时间复杂度：O(n)，空间复杂度：O(n)<br>
+            执行用时：2 ms， 内存消耗：39.8 MB <br>
+            可模仿for循环遍历两次，但是参考其他答案，发现边迭代边插入，可以省一次遍历，提高效率。</p>
+        <pre><code>class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<<span>Integer , Integer</span>> map = new HashMap<<span>Integer , Integer</span>>();
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            int rs = target - nums[i];
+            if (map.containsKey(rs)) {
+                result[0] = map.get(rs);
+                result[1] = i;
+                return result;
+            }
+            map.put(nums[i], i);
+        }
+        return result;
+    }
+}</code></pre>
+
+        
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <a href="#" class="icon solid fa-envelope">
+                    <span class="label">Email</span></a>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
