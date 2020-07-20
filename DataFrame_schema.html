@@ -29,8 +29,7 @@
         <h2>Spark中DataFrame的schema使用</h2>
         <section>
             <p>Schema是DataFrame中的数据结构信息</p>
-            <h3><strong>算法要求：给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</strong></h3>
-            <h4>for循环遍历2次</h4>
+            <h4><strong>通过StructType直接指定Schema</strong></h4>
             <pre><code>class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
