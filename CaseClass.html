@@ -38,17 +38,7 @@
         <h2>Spark创建DataFrame的几种方式</h2>
         <section>
             <pre>
-spark创建Dataframe的方式有多种，除了上一篇<a href="DataFrame_RDD.html"> RDD转DataFrame</a>外，还有很多创建方法，记录如下：
-可以通过读取多种格式的文件生成dataframe:
-<code>val df :DataFrame = spark.read.text("E:\\text.txt") //读取txt格式文件</code>
-<code>val df :DataFrame = spark.read.csv("E:\\text.txt") //读取csv格式文件</code>
-<code>val df :DataFrame  = spark.read.json("E:\\text.txt") //读取json格式文件</code>
-测试json数据：
-    [{"index":0,"_source":{"user_id":"51905331","followers_id":[1051778117394677760,1057580726281879554,107656686]}}]
-嵌套的json数据，获取子节点方法：
-<code>df.select("_source.followers_id")</code>
-获取followers_id节点下的数据：
-<code>df.select("_source.followers_id").collect()(0)</code>
+case class 样例类，适用于不可变数据，一种特殊的类，经常被用于匹配模式，实例化时不需要new，
 </pre>
         </section>
 
