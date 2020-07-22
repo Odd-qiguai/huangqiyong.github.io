@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="./index.html" class="image avatar" target="_parent">
+            <img src="images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+            <br/>
+            <br/>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Spark创建DataFrame的几种方式</h2>
+        <section>
+            <pre>
+spark创建Dataframe的方式有多种，除了上一篇<a href="DataFrame_RDD.html"> RDD转DataFrame</a>外，还有很多创建方法，记录如下：
+可以通过读取多种格式的文件生成dataframe:
+<code>val df :DataFrame = spark.read.text("E:\\text.txt") //读取txt格式文件</code>
+<code>val df :DataFrame = spark.read.csv("E:\\text.txt") //读取csv格式文件</code>
+<code>val df :DataFrame  = spark.read.json("E:\\text.txt") //读取json格式文件</code>
+测试json数据：
+    [{"index":0,"_source":{"user_id":"51905331","followers_id":[1051778117394677760,1057580726281879554,107656686]}}]
+嵌套的json数据，获取子节点方法：
+<code>df.select("_source.followers_id")</code>
+获取followers_id节点下的数据：
+<code>df.select("_source.followers_id").collect()(0)</code>
+</pre>
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
