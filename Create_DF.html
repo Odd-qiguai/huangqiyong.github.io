@@ -62,7 +62,7 @@ object Dataframe_StructType {
     val spark = SparkSession.builder().config(conf).getOrCreate()
     val ppRdd = spark.sparkContext.textFile("E:\\people.txt").map(
       line => <span>Row</span>(
-        line.split(",")(0), line.split(",")(4).trim.toInt
+        line.split(",")(0), line.split(",")(1).trim.toInt
       )
     )
     // 创建 StructType 来定义结构
