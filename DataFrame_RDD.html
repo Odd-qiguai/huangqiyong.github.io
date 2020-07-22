@@ -21,6 +21,11 @@
             <br/>
         </h1>
     </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+    </style>
 </header>
 <!-- Main -->
 <div id="main">
@@ -28,44 +33,50 @@
     <section id="One">
         <h2>Spark中RDD转DataFrame</h2>
         <section>
-            <p>Schema是DataFrame中的数据结构信息</p>
-            <h4><strong>通过StructType直接指定Schema</strong></h4>
-            <pre><code>class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == target - nums[i]) {
-                    result[0] = i;
-                    result[1] = j;
-                    return result;
-                }
-            }
-        }
-        return result;
-    }
+            <pre>
+spark3.0版本可能不太公布底层的RDD，以后使用dataframe将成为趋势，现在大都数公司也多使用dataframe来处理数据,下面对比下RDD和Dataframe的优缺点。
+RDD的优点：
+    1.相比于传统的MapReduce框架，Spark在RDD中内置很多函数操作，group，map，filter等，方便处理结构化或非结构化数据。
+    2.面向对象编程，直接存储的java对象，类型转化也安全
+RDD的缺点：
+    1.由于它基本和hadoop一样万能的，因此没有针对特殊场景的优化，比如对于结构化数据处理相对于sql来比非常麻烦
+    2.默认采用的是java序列号方式，序列化结果比较大，而且数据存储在java堆内存中，导致gc比较频繁
+DataFrame的优点：
+    1.结构化数据处理非常方便，支持Avro, CSV, elastic search, and Cassandra等kv数据，也支持HIVE tables, MySQL等传统数据表
+    2.有针对性的优化，如采用Kryo序列化，由于数据结构元信息spark已经保存，序列化时不需要带上元信息，大大的减少了序列化大小，而且数据保存在堆外内存中，减少了gc次数,所以运行更快。
+    3.hive兼容，支持hql、udf等
+DataFrame的缺点：
+    1.编译时不能类型转化安全检查，运行时才能确定是否有问题
+    2.对于对象支持不友好，rdd内部数据直接以java对象存储，dataframe内存存储的是row对象而不能是自定义对象
+测试数据 people.txt
+用户ID,年龄
+338215,24
+686087,8
+810117,14
+960838,5
+594476,11
+894998,20
+<code>import org.apache.spark.sql.SparkSession
+import org.apache.spark.SparkConf
+
+object Rdd_Dataframe {
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("schametest").setMaster("local[*]")
+    //    val contxt  = new SparkContext(conf)
+    //    val sc = new SQLContext(contxt)
+    val spark = SparkSession.builder().config(conf).getOrCreate()
+    val ppRdd = spark.sparkContext.textFile("E:\\people.txt").map(
+      line => People(
+        line.split(",")(0), line.split(",")(4).trim.toInt
+      )
+    )
+    import spark.implicits._
+    val df_table = ppRdd.toDF().createOrReplaceTempView("people")
+    val df2 = spark.sql("select * from people where age > 15").show(50)
+    spark.stop()
+  }
 }</code></pre>
         </section>
-        <h4>使用哈希表遍历一次</h4>
-        <p>使用HashMap，时间复杂度：O(n)，空间复杂度：O(n)<br>
-            执行用时：2 ms， 内存消耗：39.8 MB <br>
-            可模仿for循环遍历两次，但是参考其他答案，发现边迭代边插入，可以省一次遍历，提高效率。</p>
-        <pre><code>class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        Map<<span>Integer , Integer</span>> map = new HashMap<<span>Integer , Integer</span>>();
-        int[] result = new int[2];
-        for (int i = 0; i < nums.length; i++) {
-            int rs = target - nums[i];
-            if (map.containsKey(rs)) {
-                result[0] = map.get(rs);
-                result[1] = i;
-                return result;
-            }
-            map.put(nums[i], i);
-        }
-        return result;
-    }
-}</code></pre>
 
 
         <section>
