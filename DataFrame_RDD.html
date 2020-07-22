@@ -25,6 +25,9 @@
         p {
             font-size: 18px
         }
+        span {
+            color: red
+        }
     </style>
 </header>
 <!-- Main -->
@@ -59,6 +62,7 @@ DataFrame的缺点：
 
 SQLContext在spark2.0之后使用sparksession替代，不过仍然保留了SQLContext。
 所以注释掉，改用SparkSession.builder()
+line => People中的People是case class类型。
 <code>import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkConf
 
@@ -69,7 +73,7 @@ object Rdd_Dataframe {
     //    val sc = new SQLContext(contxt)
     val spark = SparkSession.builder().config(conf).getOrCreate()
     val ppRdd = spark.sparkContext.textFile("E:\\people.txt").map(
-      line => People(
+    line => <span>People</span>(
         line.split(",")(0), line.split(",")(4).trim.toInt
       )
     )
@@ -79,7 +83,7 @@ object Rdd_Dataframe {
     spark.stop()
   }
 }</code>
-<code>case class People(var name: String, var age: Int)</code>
+<code>case class <span>People</span>(var name: String, var age: Int)</code>
 运行结果：
 +------+---+
 |  name|age|

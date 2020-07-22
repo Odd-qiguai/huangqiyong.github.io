@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="./index.html" class="image avatar" target="_parent">
+            <img src="images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+            <br/>
+            <br/>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Spark创建DataFrame的几种方式</h2>
+        <section>
+            <pre>
+spark创建Dataframe的方式有多种，除了上一篇<a href="DataFrame_RDD.html"> RDD转DataFrame</a>外，还有很多创建方法，记录如下：
+可以通过读取多种格式的文件生成dataframe:
+<code>val df :DataFrame = spark.read.text("E:\\text.txt") //读取txt格式文件</code>
+<code>val df :DataFrame = spark.read.csv("E:\\text.txt") //读取csv格式文件</code>
+<code>val df :DataFrame  = spark.read.json("E:\\text.txt") //读取json格式文件</code>
+
+<h4>通过 <b>structType</b>直接指定schema,创建 DataFrames:</h4>
+<code>import org.apache.spark.sql.SparkSession
+import org.apache.spark.SparkConf
+import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType}
+
+object Dataframe_StructType {
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("schametest").setMaster("local[*]")
+    val spark = SparkSession.builder().config(conf).getOrCreate()
+    val ppRdd = spark.sparkContext.textFile("E:\\people.txt").map(
+      line => <span>Row</span>(
+        line.split(",")(0), line.split(",")(4).trim.toInt
+      )
+    )
+    // 创建 StructType 来定义结构
+    val schema: StructType = schema(
+      StructField("name", StringType, true),
+      StructField("age", IntegerType, true)
+    );
+    val df: DataFrame = spark.createDataFrame(ppRdd, schema)
+    df.show()
+    spark.stop()
+  }
+}</code>
+
+<h4>通过 <b>Seq</b>,创建 DataFrames:</h4>
+<code>import org.apache.spark.SparkConf
+import org.apache.spark.sql.SparkSession
+
+
+object Dataframe_Seq {
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("schametest").setMaster("local[*]")
+    val spark = SparkSession.builder().config(conf).getOrCreate()
+    val df = spark.createDataFrame(<span>Seq</span>(
+      ("xiaoming",20,3624561),
+      ("huangq",20,4561131),
+      ("zhangj",20,7581321)
+    )) toDF("name", "age","userid")
+    df.show()
+    spark.stop()
+  }
+}</code>
+运行结果：
++--------+---+-------+
+|    name|age| userid|
++--------+---+-------+
+|xiaoming| 20|3624561|
+|  huangq| 20|4561131|
+|  zhangj| 20|7581321|
++--------+---+-------+
+
+<h4>通过 <b>JDBC</b>,创建 DataFrames:</h4>
+<code>import org.apache.spark.SparkConf
+import org.apache.spark.sql.SparkSession
+
+object Dataframe_JDBC {
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("ORACEL2DV_TEST").setMaster("local")
+    val warehouseLocation = "hdfs://http://192.168.**.**:8020/user/hive/warehouse"
+    conf.setMaster("local[*]")
+      .setAppName("dataclean")
+      .set("spark.sql.warehouse.dir", warehouseLocation)
+      .set("spark.sql.crossJoin.enabled", "true")
+    val spark: SparkSession = SparkSession.builder().enableHiveSupport().config(conf).getOrCreate()
+    val testDF = spark.read
+      .format("jdbc")
+      .option("driver", "oracle.jdbc.driver.OracleDriver")
+      .option("url", "jdbc:oracle:thin:@192.168.**.**:1521:ORCL")
+      .option("dbtable", "DV_STATIS******")
+      .option("user", "****")
+      .option("password", "****")
+      .load()
+    testDF.persist().show(10) //持久化
+    testDF.printSchema(); //查看schema
+    spark.stop()
+  }
+}</code>
+<b>DataFrame转RDD比较简单。调用rdd方法,如下：</b>
+df.rdd
+</pre>
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
