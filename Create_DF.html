@@ -43,7 +43,12 @@ spark创建Dataframe的方式有多种，除了上一篇<a href="DataFrame_RDD.h
 <code>val df :DataFrame = spark.read.text("E:\\text.txt") //读取txt格式文件</code>
 <code>val df :DataFrame = spark.read.csv("E:\\text.txt") //读取csv格式文件</code>
 <code>val df :DataFrame  = spark.read.json("E:\\text.txt") //读取json格式文件</code>
-
+测试json数据：
+    [{"index":0,"_source":{"user_id":"51905331","followers_id":[1051778117394677760,1057580726281879554,107656686]}}]
+嵌套的json数据，获取子节点方法：
+<code>df.select("_source.followers_id")</code>
+获取followers_id节点下的数据：
+<code>df.select("_source.followers_id").collect()(0)</code>
 <h4>通过 <b>structType</b>直接指定schema,创建 DataFrames:</h4>
 <code>import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkConf
@@ -125,7 +130,7 @@ object Dataframe_JDBC {
   }
 }</code>
 <b>DataFrame转RDD比较简单。调用rdd方法,如下：</b>
-df.rdd
+<h3>df.rdd</h3>
 </pre>
         </section>
 
