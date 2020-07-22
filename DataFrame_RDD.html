@@ -56,6 +56,9 @@ DataFrame的缺点：
 960838,5
 594476,11
 894998,20
+
+SQLContext在spark2.0之后使用sparksession替代，不过仍然保留了SQLContext。
+所以注释掉，改用SparkSession.builder()
 <code>import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkConf
 
@@ -75,7 +78,18 @@ object Rdd_Dataframe {
     val df2 = spark.sql("select * from people where age > 15").show(50)
     spark.stop()
   }
-}</code></pre>
+}</code>
+运行结果：
++------+---+
+|  name|age|
++------+---+
+|338215| 24|
+|894998| 20|
+|548335| 30|
++------+---+
+
+
+</pre>
         </section>
 
 
