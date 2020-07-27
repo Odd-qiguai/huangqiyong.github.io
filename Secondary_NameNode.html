@@ -37,9 +37,7 @@
             <p>如果NameNode的历史检查点丢失，edits文件也都丢失了，NameNode可以引入这个最新的检查点。但需要配置hdfs的配置文件如下：</p>
             <p>1、dfs.name.dir设置个文件夹，集群上为：/opt/dfs/nn，也可以为空。</p>
             <p>2、文件系统检查点周期设置为1小时左右。确保要edit的操作在一定范围内。</p>
-            <div>
-                <img src="images/Secondary NameNode/period.jpg" alt=""/></span>
-            </div>
+            <div><img src="images/Secondary NameNode/period.jpg" alt=""/></span></div>
             <p>3、HDFS 检查点目录 fs.checkpoint.dir, dfs.namenode.checkpoint.dir 设置为：/opt/dfs/snn</p>
             <div>
                 <img src="images/Secondary NameNode/dir.jpg" alt=""/></span>
