@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="./index.html" class="image avatar" target="_parent">
+            <img src="images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+            <br/>
+            <br/>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Oracle存储过程的调用</h2>
+        <section>
+<pre>
+本篇主要记录下存储过程的优点，以及编写和调用。记录下简单的存过的语法。
+1.能完成较复杂的判断和运算
+2.可编程性强，灵活
+3.SQL编程的代码可重复使用
+4.执行速度相对快一些
+5.减少网络之间数据传输，节省开销
+
+创建存储过程的语法：
+    <code>create or replace procedure 存储过程名（param1 in type，param2 out type）
+as
+   变量1 类型（值范围）;
+   变量2 类型（值范围）;
+begin
+   select count(*) into 变量1 from 表A where列名=param1；
+   if (判断条件) then
+        select 列名 into 变量2 from 表A where列名=param1；
+        dbms_output.Put_line('打印信息');
+   elsif (判断条件) then
+        dbms_output.Put_line('打印信息');
+   else
+        raise 异常名（NO_DATA_FOUND）;
+   end if;
+exception
+   when others then
+        rollback;
+end;</code>
+无参存储过程：
+    <code>CREATE OR REPLACE
+PROCEDURE SP_TEST
+AS
+    name VARCHAR(10);
+BEGIN
+	name:='Odd_qiguai';
+	dbms_output.put_line(name);
+end;
+</code>
+    有参存储过程：
+    <code>CREATE OR REPLACE
+PROCEDURE SP_TEST(name VARCHAR, age NUMBER)
+AS
+BEGIN
+	dbms_output.put_line(name|| age);
+end;
+</code>
+
+
+</pre>
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
