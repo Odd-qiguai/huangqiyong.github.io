@@ -35,62 +35,42 @@
 <div id="main">
     <!-- One -->
     <section id="One">
-        <h2>Oracle存储过程的调用</h2>
+        <h2>Spark的wordCount产生的RDD</h2>
         <section>
 <pre>
-本篇主要记录下存储过程的优点，以及编写和调用。记录下简单的存过的语法。
-1.能完成较复杂的判断和运算
-2.可编程性强，灵活
-3.SQL编程的代码可重复使用
-4.执行速度相对快一些
-5.减少网络之间数据传输，节省开销
+使用sparkContext.textFile读取测试数据，生成一个RDD[String]。
+flatMap(line => line.split(","))负责把每行组成的RDD按分隔符切开压平成由单词组成的RDD。
+map(word => (word, 1))把每个word变成(word,1)，用于后续相加。
+reduceByKey((x, y) => x + y)把key相同的的单词，按key-value划分成一组，然后每组count聚合。
+repartition(1)合并输出文件个数，使用saveAsTextFile存储数据。
+    <code>import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.SparkConf
 
-创建存储过程的语法：
-    <code>create or replace procedure 存储过程名（param1 in type，param2 out type）
-as
-   变量1 类型（值范围）;
-   变量2 类型（值范围）;
-begin
-   select count(*) into 变量1 from 表A where列名=param1；
-   if (判断条件) then
-        select 列名 into 变量2 from 表A where列名=param1；
-        dbms_output.Put_line('打印信息');
-   elsif (判断条件) then
-        dbms_output.Put_line('打印信息');
-   else
-        raise 异常名（NO_DATA_FOUND）;
-   end if;
-exception
-   when others then
-        rollback;
-end;</code>
-无参存储过程：
-    <code>CREATE OR REPLACE
-PROCEDURE SP_TEST
-AS
-    name VARCHAR(10);
-BEGIN
-	name:='Odd_qiguai';
-	dbms_output.put_line(name);
-end;
-</code>
-    有参存储过程：
-    <code>CREATE OR REPLACE
-PROCEDURE SP_TEST(name VARCHAR, age NUMBER)
-AS
-BEGIN
-	dbms_output.put_line(name|| age);
-end;
-</code>
+object MapReduce {
+  def main(args: Array[String]): Unit = {
+    deleteDir("E:\\***")
+    val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("MapReduce")
+    val spark: SparkSession = SparkSession.builder().config(conf).getOrCreate()
+    val txtrdd: RDD[String] = spark.sparkContext.textFile("file:///E:\\**.log")
+    val words: RDD[String] = txtrdd.flatMap(line => line.split(" "))
+    val pairs: RDD[(String, Int)] = words.map(word => (word, 1))
+    val wordCount: RDD[(String, Int)] = pairs.reduceByKey((x, y) => x + y)
+    wordCount.foreach(w => {
+      println(w._1 + "--" + w._2)
+    })
+    wordCount.repartition(1).saveAsTextFile("file:///E:\\***")
+    spark.stop()
+  }</code>
 
+一直到wordCount生成，new了5个RDD，可以通过wordCount.toDebugString查看，如图:
+<img src="images/Spark_MR/debugRdd.png">
 
+保存数据的时候，使用saveAsTextFile也产生了1个RDD。查看源码可知：
+<img src="images/Spark_MR/saveAStextfile.png">
 </pre>
         </section>
 
-
-        <section>
-
-        </section>
     </section>
 </div>
 <!-- Footer -->
