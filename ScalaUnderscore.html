@@ -37,7 +37,62 @@
         <h2>Scala下划线用法</h2>
         <section>
 <pre>
-使用
+scala下划线有很多作用，可以作为通配符、类成员默认值、可变参数、类型通配符、默认匹配、 匹配集合元素、访问Tuple元素等功能，下面详细介绍。
+    1、通配符<code>import java.util.<span>_</span></code>
+    2、类成员默认值<code>var name: String = <span>_</span></code>
+    3、可变参数<code>  //args: String*可变参数
+  def echo(args: String*) = {
+    for (arg <- args) println(arg)
+  }
+
+  echo(Array("aaa","bbb"): <span>_</span>*)
+</code>
+    4、类型通配符
+    <code>  def echo(args: List[<span>_</span>]) = {
+    args.foreach(arg => {
+      println(arg)
+    })
+  }
+  echo(List("aaa", "bbb", "ccc"))
+</code>
+    5、默认匹配
+    <code>    val str=""
+    str match {
+      case "1" => print("111111")
+      case <span>_</span> => print("other")
+    }
+    //输出other</code>
+    6、匹配集合元素
+    <code>  def parse(x: Any): Unit = {
+    x match {
+      case list: List[<span>_</span>] => "匹配List"
+      case List(0, <span>_</span>, <span>_</span>) => println("匹配以0开头，长度为三的列表")
+      case List(0, <span>_</span>*) => println("匹配以0开头，长度任意的列表")
+      case list @ List(1, <span>_</span>*) => "list : $list"
+      case Array(<span>_</span>*) => println("一个数组")
+      case Vector(<span>_</span>*) => println("一个向量")
+      case (a,b,c) => println(s"三元素元组")
+      case (a,b,c,<span>_</span>) => println("四元素元组")
+      case <span>_</span> => print("other")
+    }
+  }</code>
+    7、Scala特有语法
+    访问Tuple元素：<code>    val t = (1, 2, 3, "65")
+    println(t.<span>_</span>1, t.<span>_</span>2, t.<span>_</span>3)</code>
+    简写函数:<code>    val f1 = (<span>_</span>: Int) + (<span>_</span>: Int)
+    //等价于
+    val f2 = (x: Int, y: Int) => x + y
+
+    list.foreach(println(<span>_</span>))
+    //等价于
+    list.foreach(e => println(e))
+
+    list.filter(x => x > 0)
+    //等价于
+    list.filter(<span>_</span> > 0)</code>
+    将方法转换成函数:
+    <code>    val p = print <span>_</span>
+    p("1")</code>
 </pre>
         </section>
 
