@@ -36,17 +36,22 @@
     <section id="One">
         <h2>Spark中RDD转DataFrame</h2>
         <section>
-            <pre>
-spark3.0版本可能不太公布底层的RDD，以后使用dataframe将成为趋势，现在大都数公司也多使用dataframe来处理数据,下面对比下RDD和Dataframe的优缺点。
+<pre>
+spark3.0版本可能不太公布底层的RDD，以后使用dataframe将成为趋势，现在大都数公司也多使用dataframe来处理数据,
+下面对比下RDD和Dataframe的优缺点。
 RDD的优点：
-    1.相比于传统的MapReduce框架，Spark在RDD中内置很多函数操作，group，map，filter等，方便处理结构化或非结构化数据。
+    1.相比于传统的MapReduce框架，Spark在RDD中内置很多函数操作，group，map，filter等，方便处理结构化或非
+      结构化数据。
     2.面向对象编程，直接存储的java对象，类型转化也安全
 RDD的缺点：
-    1.由于它基本和hadoop一样万能的，因此没有针对特殊场景的优化，比如对于结构化数据处理相对于sql来比非常麻烦
+    1.由于它基本和hadoop一样万能的，因此没有针对特殊场景的优化，比如对于结构化数据处理相对于sql来比非常
+      麻烦
     2.默认采用的是java序列号方式，序列化结果比较大，而且数据存储在java堆内存中，导致gc比较频繁
 DataFrame的优点：
-    1.结构化数据处理非常方便，支持Avro, CSV, elastic search, and Cassandra等kv数据，也支持HIVE tables, MySQL等传统数据表
-    2.有针对性的优化，如采用Kryo序列化，由于数据结构元信息spark已经保存，序列化时不需要带上元信息，大大的减少了序列化大小，而且数据保存在堆外内存中，减少了gc次数,所以运行更快。
+    1.结构化数据处理非常方便，支持Avro, CSV, elastic search, and Cassandra等kv数据，也支持HIVE tables,
+      MySQL等传统数据表
+    2.有针对性的优化，如采用Kryo序列化，由于数据结构元信息spark已经保存，序列化时不需要带上元信息，大大
+      的减少了序列化大小，而且数据保存在堆外内存中，减少了gc次数,所以运行更快。
     3.hive兼容，支持hql、udf等
 DataFrame的缺点：
     1.编译时不能类型转化安全检查，运行时才能确定是否有问题
@@ -92,8 +97,6 @@ object Rdd_Dataframe {
 |894998| 20|
 |548335| 30|
 +------+---+
-
-
 </pre>
         </section>
 
