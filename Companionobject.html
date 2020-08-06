@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="./index.html" class="image avatar" target="_parent">
+            <img src="images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+            <br/>
+            <br/>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>scala伴生对象和java的关键字Static</h2>
+        <section>
+<pre>
+伴生对象的解释是：实现类似 Java 中那种既有实例成员又有静态成员的类的功能。
+什么是伴生对象:
+<h4>1、写个class，并且实现所有实例成员
+2、添加object，和class类同名，class和object在同一个文件中，实现所有的静态成员</h4>
+虽然分开定义class和object，但是可以互相访问对方的私有变量，如下：
+<code>class companion {
+  private var name: String = "odd"
+
+  def init(): Unit = {
+    println("class companion " + name)
+    println("from object " + companion.age)
+    companion.prt(this)
+  }
+}
+
+object companion {
+  private var age: Int = 0
+
+  def prt(cp: companion): Unit = {
+    println("object companion " + age)
+    println("from class " + cp.name)
+  }
+}</code>
+通过如下代码调用：
+    <code>object test {
+  def main(args: Array[String]): Unit = {
+    val a = new companion()
+    a.init()
+  }
+}</code>
+结果：<code>class companion odd
+from object 0
+object companion 0
+from class odd</code>
+访问私有变量注意2点
+    1、class中访问object私有属性，需通过<span>object名</span>来访问。
+    2、object中访问class私有属性，需通过<span>class对象</span>来访问。
+
+    <h3>伴生对象的意义:</h3>
+    1、Scala 中没有 static 关键字,为了<span>弥补不能定义 static 属性不足</span>引进伴生对象就很有必要了。
+    2、静态属性节省内存资源，伴生对象本质上也是生成静态属性，所以这意义就是<span>节省内存资源</span>。
+    3、静态属性在整个jvm中开辟空间，编程时候可以在所有实例中访问这个内存的信息，实现<span>资源共享</span>。
+
+</pre>
+<h2>java关键字Static复习</h2>
+<h4>1）static方法</h4>
+    <p>static方法一般称作静态方法，由于静态方法不依赖于任何对象就可以进行访问，因此对于静态方法来说，是没有this的，因为它不依附于任何对象，既然都没有对象，就谈不上this了。并且由于这个特性，在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法/变量都是必须依赖具体的对象才能够被调用。</p>
+<h4>2）static变量</h4>
+    <p>static变量也称作静态变量，静态变量和非静态变量的区别是：静态变量被所有的对象所共享，在内存中只有一个副本【存放在方法区】，它当且仅当在类初次加载时会被初始化【加final和不加final的static变量初始化的位置不一样】。而非静态变量是对象所拥有的，在创建对象的时候被初始化，存在多个副本，各个对象拥有的副本互不影响。</p>
+<h4>3）static代码块</h4>
+    <p>static关键字还有一个比较关键的作用就是 用来形成静态代码块以优化程序性能。static块可以置于类中的任何地方，类中可以有多个static块。在类初次被加载的时候，会按照static块的顺序来执行每个static块，并且只会执行一次【根据class加载原理 每个类加载一次 使用双亲委托加载】。</p>
+    <p>初始化的顺序 静态代码块 > 构造代码块 > 构造函数 </p>
+
+        </section>
+
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

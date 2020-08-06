@@ -38,7 +38,7 @@
         <h2>spark.implicits._ </h2>
         <section>
 <pre>
-    导入的隐士转换的 implicits._ 不是spark包里面的，而是在SparkSession在bulider()或者new
+    导入的隐式转换的 implicits._ 不是spark包里面的，而是在SparkSession在bulider()或者new
 SQLContext(SparkContext(conf))所产生的对象，因此需要修改一下对象，便可调用spark的toDS()或
 者toDF()方法了
     <code>import org.apache.spark.{SparkConf, SparkContext}
