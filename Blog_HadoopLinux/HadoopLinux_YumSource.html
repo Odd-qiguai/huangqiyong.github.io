@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_HadoopLinux.html" class="image avatar" target="_parent">
+            <img src="../images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>局域网内制作yum源</h2>
+        <section>
+<p> 服务器一般没连接外网，在断网的时候需要自己设置内网的yum源，记录下之前的操作内容。<br>
+    局域网内制作yum源：<br>
+    命令行操作：<br>
+    yum install httpd<br>
+    mkdir /var/www/html/yum<br>
+    ln –s /home1 /home2<br>
+    createrepo .<br>
+    1. 登录到资源服务器 bdapp08（172.32.148.103）上；<br>
+    2. 将 bdapp08 上的/var/www/html/ambari 和/var/www/html/CDH 文件夹及其子目录拷贝到需要搭建的资源服务器的/var/www/html 目录；<br>
+    3. 根据集群安装的操作系统的安装光盘或者 ISO 镜像， 将其中的 Packages 和 repodata 目录拷贝到资源服务器/var/www/html/os 目录下；<br>
+    4. 启动 httpd 服务， 执行 sudo service httpd start<br>
+    5. 将 httpd 设置为开机自动启动服务<br>
+    sudo chkconfig httpd on<br>
+    sudo chkconfig --list httpd ， 如果 2～5 都为 on，说明开机启动已设置成功<br>
+    6. 关闭资源服务器防火墙， 测试 yum 仓库是否可以正常访问。 在资源服务器之外的主机采用浏览器分别访问http://yumserver/CDH 、 http://yumserver/ambari 、 http://yumserver/os ， 若可以正常看到子目录下的 rpm 文件列表，则说明资源服务器配置正确。<br>
+    <br>
+    使用yum源配置：<br>
+    1 创建 ambari.repo 文件<br>
+    2.登录到 NMBDP 主机， 在/etc/yum.repos.d 目录下执行 sudo vi ambari.repo 创建文件，文件内容如下：<br>
+    [ambari]<br>
+    name=ambari<br>
+    baseurl=http://yumserver/ambari/<br>
+    gpgcheck=0<br>
+    enabled=1<br>
+    配置说明：<br>
+    1) yumserver 地址为实际资源服务器地址,请在每台主机中/etc/hosts 中加入 yumserver 和实际资源服务器地址的映射关系；<br>
+    2) 此操作仅需在 NMBDP 主机进行， 集群内其他主机上的 ambari.repo 文件会在加入主机安装客户端后自动分发。<br>
+    3 创建 os.repo 文件<br>
+    1. 登录到集群内所有主机上， 将/etc/yum.repos.d 下的自带的 repo 文件全部更名为 bak 文件， 确保不再使用互联网的资源地址；<br>
+    2. 创建 os.repo 文件，文件内容如下：<br>
+    [os]<br>
+    name = os<br>
+    baseurl = http://yumserver/os/rhd/6.4/<br>
+    gpgcheck = 0<br>
+    enabled=1<br>
+    注： 如果 yumserver 配置为 bdapp08 的地址 baseurl 路径为上述内容；如果 yumserver 为自行搭建， baseurl 需要对应到 repodata 目录的地址，如下图所示：<br>
+    4 检查 repo 资源配置<br>
+    1. 登录到安装服务器， 对 ambari.reop 和 os.repo 文件的配置进行检查；<br>
+    2. 执行： sudo yum clean all 清除 yum 本地缓存；<br>
+    3. 执行： sudo yum makecache 重建缓存<br></p></section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_HadoopLinux.html" class="image avatar" target="_parent">
+            <img src="../images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Linux的SSH隧道</h2>
+        <section>
+<pre>启用隧道： ssh -NCfg -L 13306:10.238.156.78:3306  bduser@10.238.156.78
+                      本机端口:目标主机IP：目标端口  目标主机用户@目标主机IP</pre>
+<p><br>
+    在使用SSH客户端进行连接管理的时候如果长时间不输入命令， 服务器会自动断开连接， 尤其是有的人使用SSH作为代理连接这样的情况更是突出， 因此我在网上搜集了可以让 SSH 保持连接的方法与大家分享<br>
+    <br>
+    在服务器端， 可以让服务器发送“心跳”信号测试提醒客户端进行保持连接<br>
+    通过修改 sshd 的配置文件，能够让 SSH Server 发送“心跳”信号来维持持续连接，下面是设置的内容<br>
+    <br>
+    打开服务器 /etc/ssh/sshd_config，我在最后增加一行<br>
+    <br>
+    ClientAliveInterval 60<br>
+    ClientAliveCountMax 1<br>
+    这 样，SSH Server 每 60 秒就会自动发送一个信号给 Client，而等待 Client 回应，（注意：是服务器发心跳信号，不是客户端，这个有别于一些 FTP Client 发送的 KeepAlives 信号哦～～～），如果客户端没有回应，会记录下来直到记录数超过 ClientAliveCountMax 的值时，才会断开连接。<br>
+    <br>
+    如果你没有服务器端管理权限， 在客户端进行设置也可以实现<br>
+    只要在/etc/ssh/ssh_config文件里加两个参数就行了<br>
+    <br>
+    1 TCPKeepAlive yes<br>
+    2 ServerAliveInterval 300<br>
+    前一个参数是说要保持连接，后一个参数表示每过5分钟发一个数据包到服务器表示“我还活着”<br>
+    <br>
+    如果你没有root权限，修改或者创建~/.ssh/ssh_config也是可以的<br>
+    <br>
+    在这种方法中， 如果你只想针对某一个ssh连接进行持续， 你可以将上述配置文件复制一下进行修改然后在连接的时候使用 -F参数进行配置文件的指定。 当然因为只需要修改两个参数， 你也可以直接在连接命令中进行设定即：<br>
+    <br>
+    ssh -o TCPKeepAlive=yes -o ServerAliveInterval=300 pswzyu@nuihq.com -p 12345678<br>
+</p>
+        </section>
+
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
