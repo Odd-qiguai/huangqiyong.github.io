@@ -17,14 +17,13 @@
             <img src="images/avatar.jpg" alt=""/></a>
         <h1>
             <strong>I am HuangQiYong</strong>
-            <br/>
-            <br/>
         </h1>
     </div>
     <style>
         p {
             font-size: 18px
         }
+
         span {
             color: red
         }
@@ -34,16 +33,80 @@
 <div id="main">
     <!-- One -->
     <section id="One">
-        <h2>scala隐式详解(implicit关键字)</h2>
+        <h2>scala隐式转换和隐式参数</h2>
         <section>
 <pre>
     需要一个类里面的方法，但是类没有提供此方法，可以通过隐式转换，为这个类添加方法，然后调用他。
     比如spark.implicits._
+    <h3>隐式参数与隐式转换</h3>  步骤：
+        1、需要一个增强的类，里面提供我们想要的方法，接收的参数的类型一定要是被增强类的类型。
+    <code>import java.io.File
 
+        class RichFile(val file: <span>File</span>) {
+      def readtest {
+        print("隐式转换方法体")
+      }
+    }</code>
+        2、在单例对象中写明隐式转换
+    <code>import java.io.File
+    object Context {
+      implicit def impRichFile(file: File) = <span>new RichFile</span>(file)
+    }</code>
+        3、把隐式转换函数导进来
+        <code>object implcitMain {
+      def main(args: Array[String]): Unit = {
+            <span>import Context.impRichFile</span>
+        new File("").readtest
+      }
+    }</code>
+    在spark中隐士转换都写在<a href="Companionobject.html" >伴生对象</a>中，因为类的实例肯定能找到伴生对象的，同在一个作用域当中
 
+<h3>隐式参数</h3><code>object parameter_Implicits {
+  //定义隐式参数的默认值
+  implicit val javas: String = "JAVA"
+}
+</code>
+<code>object parameter {
+  //函数中用implicit关键字 定义隐式参数
+  def p(txt: String)(implicit name: String) {
+    println(txt + "--" + name)
+  }
+}</code>
+<code>object parametermain {
+  def main(args: Array[String]): Unit = {
+    //隐式参数有默认值，调用方法参数可传可不传
+    parameter.p("Spark")("scala")
+    import parameter_Implicits._
+    parameter.p("Spark")
+  }
+}</code>
+<h3>隐式参数与隐式转换</h3>  直接定义一个函数然后传进去，具体分析详情看注释：
+    <code>object Implicit_Conversions_with_Implicit_Parameters {
+  def main(args: Array[String]): Unit = {
+    /**
+      * (1)bigger[T]为泛型函数
+      * (2)bigger(...)(...)该函数是<span>柯里化</span>的
+      * (3)第二个括号传入的是一个<span>匿名函数</span>，类型为T => Ordered[T] orders是隐式参数 输入类型为T类型， 返回类型为Ordered[T]类型
+      *
+      **/
+        def bigger[T](a: T, b: T)(implicit ordered: T => <span>Ordered</span>[T]) = {
+      /**
+        * ordered(a) > b中的<span>">"是一个函数</span> 具体定义在Ordered类中
+        * Source define:
+        * def >  (that: A): Boolean = (this compare that) >  0
+        */
+        if (ordered(a) <span>></span> b) a else b // if (a > b) a else b  //这样写也可以
+    }
 
-
-
+    println(bigger(4, 3)) //4
+    println(bigger("Spark", "Hadoop")) //Spark
+  }
+}</code>
+<h3>其他的隐式</h3>
+有时候进行代码重构，要增强他的某项功能同时又不想做太大的改动
+更多用的是隐式转换，隐式类用的不多，这里不做代码编写。
+还有其他的：上下文界定中的隐式参数、隐式类、隐式对象、通过伴生对象进行隐式转换。
+可参考文档：<a href="https://www.jianshu.com/p/ebbb148e5fd6">Scala 隐式转换</a>
 
 </pre>
         </section>

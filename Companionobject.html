@@ -17,8 +17,6 @@
             <img src="images/avatar.jpg" alt=""/></a>
         <h1>
             <strong>I am HuangQiYong</strong>
-            <br/>
-            <br/>
         </h1>
     </div>
     <style>
@@ -41,7 +39,8 @@
 伴生对象的解释是：实现类似 Java 中那种既有实例成员又有静态成员的类的功能。
 什么是伴生对象:
 <h4>1、写个class，并且实现所有实例成员
-2、添加object，和class类同名，class和object在同一个文件中，实现所有的静态成员</h4>
+2、添加object，和class类同名，class和object在同一个文件中，实现所有的静态成员
+(trait也可以有伴生对象,这边不讨论)</h4>
 虽然分开定义class和object，但是可以互相访问对方的私有变量，如下：
 <code>class companion {
   private var name: String = "odd"
