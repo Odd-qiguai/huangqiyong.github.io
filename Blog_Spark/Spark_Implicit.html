@@ -19,35 +19,61 @@
             <strong>I am HuangQiYong</strong>
         </h1>
     </div>
-    <!--    <base target="_blank"/>-->
-    <style type="text/css">
-        a {
-            color: #3d98ff
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
         }
     </style>
 </header>
 <!-- Main -->
 <div id="main">
+    <!-- One -->
     <section id="One">
-        <!-- 2020-07-14 -->
-        <a href="../Secondary_NameNode.html">NameNode 和 Secondary NameNode差别</a>
-        <p>NameNode主要作用是存储源数据信息到hdfs上，可以加载在内存也可以写在HDFS上。NameNode重启时，会从一个fsimage文件中读取hdfs状态......</p>
-        <!-- 2020-08-07 -->
-        <a href="111.html"></a>
-        <p></p>
+        <h2>spark.implicits._ </h2>
+        <section>
+<pre>
+    导入的隐式转换的 implicits._ 不是spark包里面的，而是在SparkSession在bulider()或者new
+SQLContext(SparkContext(conf))所产生的对象，因此需要修改一下对象，便可调用spark的toDS()或
+者toDF()方法了
+    <code>import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.sql.{DataFrame, Dataset, SQLContext, SparkSession}
+
+object CreateDf {
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("test").setMaster("local[*]")
+    val spark1 = SparkSession.builder().config(conf).getOrCreate()
+    import spark1.implicits._
+    //    val sc = SparkContext(conf)
+    //    val spark2 = new SQLContext(sc)
+    //    import spark2.implicits._
+    val ds: Dataset[Int] = Seq(2, 1).toDS()
+    val ds2: DataFrame = Seq(2, 1).toDF()
+  }
+}</code>
+</pre>
+        </section>
+
     </section>
 </div>
 <!-- Footer -->
 <footer id="footer">
     <div class="inner">
         <ul class="icons">
-            <li><a href="https://twitter.com/home" class="icon brands fa-twitter"> <span
-                    class="label">Twitter</span></a></li>
-            <li><a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
-                <span class="label">Github</span></a>
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
             </li>
             <li>
-                <div class="icon solid fa-envelope"><span class="label">Email</span></div>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
             </li>
         </ul>
         <ul class="copyright">

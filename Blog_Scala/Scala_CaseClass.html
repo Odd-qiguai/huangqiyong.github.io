@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../index.html" class="image avatar" target="_parent">
+            <img src="../images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Scala的 case class学习</h2>
+        <section>
+<pre>
+case class 样例类，适用于不可变数据，经常被用于匹配模式，实例化时不需要new，编译时会自动生成对象。
+将类定义为case类会生成许多模板代码,如
+<code>case class Person (age: Int, name: String)</code>
+Person.scala在编译后会产生2个class，如图：
+<img src="../images/CaseClass/twoclass.png">
+1、初始化的时候可以不用new，也可以加上，但是普通类一定需要加new；
+    因为编译器给scala自动添加了一个伴生对象Person$，实现了apply方法如下：
+    <img src="../images/CaseClass/apply.png">
+    apply默认new了一个对象，所以我们创建一个实例的时候不需要使用关键字new,可以直接通过Person(age,name)来得到一个实例对象
+2、默认实现了equals 和hashCode和toString；
+    <img src="../images/CaseClass/funtion.png">
+3、默认是可以序列化的，也就是实现了Serializable ；
+    <img src="../images/CaseClass/serializable.png">
+5、自动从scala.Product中继承一些函数(如上图);
+6、case class构造函数的参数是public级别的，我们可以直接访问；
+    <img src="../images/CaseClass/get.png">
+7、支持模式匹配；
+</pre>
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

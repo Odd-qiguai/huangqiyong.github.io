@@ -6,15 +6,15 @@
     <title>奇怪 | Odd-Blog</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
 </head>
 
 <body class="is-preload">
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="./index.html" class="image avatar" target="_parent">
-            <img src="images/avatar.jpg" alt=""/></a>
+        <a href="../index.html" class="image avatar" target="_parent">
+            <img src="../images/avatar.jpg" alt=""/></a>
         <h1>
             <strong>I am HuangQiYong</strong>
         </h1>
@@ -36,7 +36,7 @@
         <h2>Spark创建DataFrame的几种方式</h2>
         <section>
             <pre>
-spark创建Dataframe的方式有多种，除了上一篇<a href="DataFrame_RDD.html"> RDD转DataFrame</a>外，还有很多创建方法，记录如下：
+spark创建Dataframe的方式有多种，除了上一篇<a href="Spark_DF_RDD.html"> RDD转DataFrame</a>外，还有很多创建方法，记录如下：
 可以通过读取多种格式的文件生成dataframe:
 <code>val df :DataFrame = spark.read.text("E:\\text.txt") //读取txt格式文件</code>
 <code>val df :DataFrame = spark.read.csv("E:\\text.txt") //读取csv格式文件</code>
@@ -161,12 +161,12 @@ object Dataframe_JDBC {
     </div>
 </footer>
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.poptrox.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
 <script type="text/javascript" language="javascript">function over() {
     document.getElementById("contain").style.innerHTML = "2";
 }

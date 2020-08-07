@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../index.html" class="image avatar" target="_parent">
+            <img src="../images/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Linux上FTP的安装</h2>
+        <section>
+            <p>基于redhat版本,如何在 redhat 中安装、配置并保护 FTP 服务器，从而拥有强大的安全性，能够防范 FTP 漏洞</p>
+<pre>
+    无网络可用挂载模式mount /dev/cdrom1 /media/CentOS 挂载进目录
+配置详解：
+    anonymous_enable=NO #禁止匿名登录
+    local_enable=NO #禁止本地用户登录
+
+一、启动vsftpd服务
+安装： yum install vsftpd
+运行服务： service vsftpd start
+开机自启： chkconfig --level 35 vsftpd on”
+二、设置FTP权限
+A. 编辑VSFTP配置文件，运行命令：”vi /etc/vsftpd/vsftpd.conf “
+B. 将配置文件中”anonymous_enable=YES “改为 “anonymous_enable=NO”
+C. 保存修改，按ESC键，运行命令：“：wq”这样关闭了匿名登录功能。
+三、添加用户：
+A. 登录Linux主机后，运行命令：”useradd ftpadmin -s /sbin/nologin “。该账户路径默认指向/home/ftpadmin目录；
+如果需要将用户指向其他目录，请运行命令：useradd ftpadmin -s /sbin/nologin –d /www(其他目录)
+B. 设置ftpadmin用户密码，运行命令：”passwd ftpadmin” ; 输入两次密码，匹配成功后，就设置好了ftpadmin用户的密码了。
+C.测试连接，您可以在“我的电脑”地址栏中输入 ftp://IP 来连接FTP服务器，根据提示输入账户密码。
+</pre>
+        </section>
+
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
