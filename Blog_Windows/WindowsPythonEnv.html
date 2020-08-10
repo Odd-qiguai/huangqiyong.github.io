@@ -13,38 +13,37 @@
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="../Transit/Transit_HadoopLinux.html" class="image avatar" target="_parent">
+        <a href="../Transit/Transit_Leetcode.html" class="image avatar" target="_parent">
             <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
         <h1>
             <strong>I am HuangQiYong</strong>
         </h1>
     </div>
-    <style>
-        p {
-            font-size: 18px
-        }
-
-        span {
-            color: red
-        }
-    </style>
 </header>
 <!-- Main -->
 <div id="main">
     <!-- One -->
     <section id="One">
-        <h2>Linux上免密登陆设置</h2>
+        <!-- 2020-08-10 -->
+        <h2>Pyhton环境配置</h2>
         <section>
-            <p>装过太多次免密登陆了，集成了命令行一步到位。</p>
-            <p>免密登陆：</p>
-            <p>chmod 700 ~&&rm -r ~/.ssh&&mkdir ~/.ssh&&chmod 700  ~/.ssh&&ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa&&cat ~/.ssh/id_rsa.pub</p>
-            <p>cat ~/.ssh/id_rsa.pub > ~/.ssh/authorized_keys</p>
-            <p>chmod 600 ~/.ssh/authorized_keys</p>
-
-<pre>
-踩过的大坑：home目录的上级目录权限不能过高。会导致，免密失效。配置完免密不生效，查看各级目录的权限。
-</pre></section>
-
+            <p>python环境变量：export PATH=/root/anaconda3/bin:$PATH</p>
+            <p>查看tornado版本： python -c "import pip; print(pip.version)"</p>
+            <p>print(os.sys.path.version)</p>
+            <p>系统级环境变量：ln -s /root/anaconda2/bin/python2.7 /usr/local/bin/python</p>
+            <p>豆瓣：http://pypi.douban.com/simple/</p>
+            <p>清华：https://pypi.tuna.tsinghua.edu.cn/simple</p>
+            <p>linux下，修改 ~/.pip/pip.conf (没有就创建一个)， 修改 index-url至tuna，内容如下：</p>
+            <p>[global]</p>
+            <p>index-url = https://pypi.tuna.tsinghua.edu.cn/simple</p>
+            <p>windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下</p>
+            <p>[global]</p>
+            <p>index-url = https://pypi.tuna.tsinghua.edu.cn/simple</p>
+            <p>python目录 Python27\Lib\site-packages 建一个文件sitecustomize.py 内容写： </p>
+            <p>import sys </p>
+            <p>sys.setdefaultencoding('gbk') </p>
+            <p>python会自动运行这个文件。</p>
+        </section>
     </section>
 </div>
 <!-- Footer -->

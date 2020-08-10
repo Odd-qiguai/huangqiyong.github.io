@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_Database.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Phoenix 介绍和基本用法</h2>
+        <section>
+<p>Phoenix是构建在hbase上的sql层。能用jdbc来创建表插入数据和查询，而不通过hbase的客户端。phoenix由java编写，作为hbase的内嵌JDBC驱动，phoenix查询会将sql转为一个或多个hbase扫描并编排执行以生成jdbc结果集。</p>
+<p>CDH位置：/opt/cloudera/parcels/CDH/lib</p>
+<p>Phoenix：</p>
+<p>/opt/cloudera/parcels/APACHE_PHOENIX/bin/phoenix-sqlline.py node03:2181;node04:2181;node05:2181</p>
+<p>Hbase配置：/etc/hbase</p>
+<p>cloudera-scm-server位置：/opt/cloudera-manager/cm-5.14.0/etc/init.d		./cloudera-scm-server restart		./cloudera-scm-agent restart</p>
+<p>数据入phoenix：</p>
+<p>HADOOP_CLASSPATH="/etc/hbase/conf" hadoop jar phoenix-4.14.0-cdh5.14.2-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool -D mapreduce.map.memory.mb=2048 -D mapreduce.reduce.memory.mb=2048 -D yarn.nodemanager.vmem-pmem-ratio=3 -s XM_PD --table hive_fre_risk_evaluation_log --input /tmp/hivedata/hive_fre_risk_evaluation_log_parquet/* -z node03:2181</p>
+<p>插入数据到索引表：</p>
+<p>HADOOP_CLASSPATH="/etc/hbase/conf" hadoop jar /opt/cloudera/parcels/APACHE_PHOENIX/lib/phoenix/phoenix-4.14.0-cdh5.14.2-client.jar org.apache.phoenix.mapreduce.index.IndexTool -D mapreduce.map.memory.mb=6144 -D mapreduce.reduce.memory.mb=6144 -D yarn.nodemanager.vmem-pmem-ratio=3 --schema XM_PD --index-table HIVE_FRE_RISK_EVALUATION_LOG_INDEX --data-table HIVE_FRE_RISK_EVALUATION_LOG --output-path /tmp/hivedata_mr</p>
+<p>建表：</p>
+<p>create table if not exists xm_pd.phoenix_fre_risk_evaluation_log(pk_id varchar primary key,parent_id varchar,risk_value double,risk_branch varchar,flying_stage varchar,success_flg varchar,remark varchar,calc_time date,calc_by varchar,related_id varchar,calculation_batch varchar,additional_risk_value double,calc_time_int bigint) default_column_family='mf', salt_buckets = 30;</p>
+<p>插入数据：upsert into company(id, name, address) values('001', 'dimensoft', 'nanjing');</p>
+<p>查看执行计划：explain  sql;</p>
+<p>查看索引：!indexes company;</p>
+<p>查看全部索引状态：</p>
+<p>select TABLE_NAME,DATA_TABLE_NAME,INDEX_TYPE,INDEX_STATE,INDEX_DISABLE_TIMESTAMP from system.catalog where INDEX_TYPE is not null;</p>
+<p>删除索引：DROP INDEX my_index ON my_table;</p>
+<p>强制使用索引查询： SELECT /*+ INDEX(company my_index) */ name,address FROM company WHERE name = 'dimensoft';</p>
+<p>Global Indexing全局索引</p>
+<p>创建索引：create index my_index on company(name)/company(name,address)</p>
+<p>创建覆盖索引covered index： create index my_index on company(name) include(address);</p>
+<p>异步索引：create index index_global_test_async on dmp.dmp_index_test (name) include (age) ASYNC;</p>
+<p>Local Indexing本地索引</p>
+<p>创建索引：create local index my_index on company(name);</p>
+<p>immutable索引的表创建</p>
+<p>创建索引：create table company_immutable(id varchar primary key, name varchar, address varchar) IMMUTABLE_ROWS=true;</p>
+<p>不可变索引，索引表数据不会删除，只会追加</p>
+<p>SALT_BUCKETS创建预分区</p>
+<p>CREATE TABLE company(a_key VARCHAR PRIMARY KEY, a_col VARCHAR) SALT_BUCKETS = 20;</p>
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

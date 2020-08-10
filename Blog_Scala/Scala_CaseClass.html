@@ -14,7 +14,7 @@
 <header id="header">
     <div class="inner">
         <a href="../Transit/Transit_Scala.html" class="image avatar" target="_parent">
-            <img src="../images/avatar.jpg" alt=""/></a>
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
         <h1>
             <strong>I am HuangQiYong</strong>
         </h1>
@@ -40,18 +40,18 @@ case class 样例类，适用于不可变数据，经常被用于匹配模式，
 将类定义为case类会生成许多模板代码,如
 <code>case class Person (age: Int, name: String)</code>
 Person.scala在编译后会产生2个class，如图：
-<img src="../images/CaseClass/twoclass.png">
+<img src="../images/Scala_CaseClass/twoclass.png">
 1、初始化的时候可以不用new，也可以加上，但是普通类一定需要加new；
     因为编译器给scala自动添加了一个伴生对象Person$，实现了apply方法如下：
-    <img src="../images/CaseClass/apply.png">
+    <img src="../images/Scala_CaseClass/apply.png">
     apply默认new了一个对象，所以我们创建一个实例的时候不需要使用关键字new,可以直接通过Person(age,name)来得到一个实例对象
 2、默认实现了equals 和hashCode和toString；
-    <img src="../images/CaseClass/funtion.png">
+    <img src="../images/Scala_CaseClass/funtion.png">
 3、默认是可以序列化的，也就是实现了Serializable ；
-    <img src="../images/CaseClass/serializable.png">
+    <img src="../images/Scala_CaseClass/serializable.png">
 5、自动从scala.Product中继承一些函数(如上图);
 6、case class构造函数的参数是public级别的，我们可以直接访问；
-    <img src="../images/CaseClass/get.png">
+    <img src="../images/Scala_CaseClass/get.png">
 7、支持模式匹配；
 </pre>
         </section>

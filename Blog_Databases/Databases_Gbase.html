@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_Database.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Gbase操作命令</h2>
+        <section>
+
+            <p>GBase
+                是南大通用推出的自主品牌的数据库产品,：致力于海量数据分析领域的应用，满足数据密集型行业日益增大的关系型联机分析处理（ROLAP）、即席查询（AdHoc）、复杂报表等需求的高性能数据处理应用。</p>
+            <p> #进入gbase: gbase -h10.238.155.2 -ugbase -pgbase20110531</p>
+            <p> gbase -h10.238.155.22 -ugbase -pXjydGbase8a</p>
+            <p>#抽取到本地</p>
+            <p>gbase -h10.238.155.22 -ugbase -pXjydGbase8a -w -e "rmt:select * from table into outfile '/tmp/user.avl'
+                columns terminated by '\x01' " ;</p>
+            <p>#抽取到HDFS</p>
+            <p>gbase -h10.238.155.22 -ugbase -pXjydGbase8a -w -e "select * from XJDSS.info_ucv INTO OUTFILE
+                'hdp://newland@w-ms2:50070/tmp/z03' OUTFILEMODE BY HDFS columns terminated by '\x01'";</p>
+            <p>#rownum函数</p>
+            <p>select *,row()over(partition by CallingStationId order by timestamp) from xjdss.electric</p>
+            <p>#hdfs加载到表</p>
+            <p>gbase -h10.238.155.22 -ugbase -pXjydGbase8a -vv -e " LOAD DATA INFILE 'hdfs@10.238.156.108:50070/路径' into
+                table 表名 DATA_FORMAT 3 FIELDS TERMINATED BY '\x01分隔符' NULL_VALUE 'string' table_fields '列名'；"</p>
+            <p>#错误日志</p>
+            <p>/opt/gnode/log/gbase/loader_logs</p>
+            <p>修改列名：ALTER TABLE tablename CHANGE test test1 CHAR(32)</p>
+            <p>#查看装载进度：</p>
+            <p>gbase -h10.238.155.22 -ugbase -pXjydGbase8a;</p>
+            <p>use information_schema;</p>
+            <p>select * from load_status;</p>
+            <p>show processlist; 查看进程列表</p>
+            <p>
+            <div><img src="../images/Databases_Gbase/Gbase_f.jpg" alt=""/></div>
+            </p>
+            <p>cexecs data: "gncli -ugbase -pXjydGbase8a -e\"show full processlist\""</p>
+            <p>gcadmin showlock; 命令 查看集群锁(22本机执行)</p>
+            <p>显示结果列名解释如下：</p>
+            <p>Lock name：锁的名字。</p>
+            <p>owner：发起该加锁操作的节点 IP。</p>
+            <p>content：锁的备注信息。</p>
+            <p>create time：锁的创建时间（以加锁节点的时间为准）。</p>
+            <p>orphan：是否是孤儿锁。</p>
+            <p>type：锁的类型， S 表示共享锁， E 表示独占锁。</p>
+            <p>日志路径：/opt/gnode/log/gbase/loader_logs</p>
+            <p>#获取激活状态的namenode IP函数：</p>
+            <p>aclname=`curl http://10.238.156.40:50070/dfshealth.jsp 2>&1 |grep "NameNode '"`</p>
+            <p>if [[ "$aclname" =~ "active" ]]</p>
+            <p>then</p>
+            <p>nameip=10.238.156.40</p>
+            <p>else</p>
+            <p>nameip=10.238.156.41</p>
+            <p>fi</p>
+            <p>#按照配置装载到表，SFTP方式</p>
+            <p>gbase -h10.238.155.22 -ugbase -pXjydGbase8a -vv -e "LOAD DATA INFILE
+                'sftp://${loadsftpuser}:${loadsftppwd}@${loadsftphost}/${loadsftppath}' INTO TABLE ${loadtablename}
+                DATA_FORMAT 3 NULL_VALUE 'null' FIELDS TERMINATED BY '${loadhdfstm}' MAX_BAD_RECORDS 0 DATETIME FORMAT
+                '%Y/%c/%d %H:%i:%S' DATE FORMAT '%Y/%c/%d'"</p>
+            <p>#按照配置装载到表，FTP方式</p>
+            <p>gbase -h10.238.155.22 -ugbase -pXjydGbase8a -vv -e "LOAD DATA INFILE
+                'ftp://${loadftpuser}:${loadftppwd}@${loadftphost}:2222/${loadftppath}' INTO TABLE ${loadtablename}
+                DATA_FORMAT 3 NULL_VALUE 'null' FIELDS TERMINATED BY '${loadhdfstm}' MAX_BAD_RECORDS 0 DATETIME FORMAT
+                '%Y/%c/%d %H:%i:%S' DATE FORMAT '%Y/%c/%d'"</p>
+            <p>
+            <div><img src="../images/Databases_Gbase/Gbase_load.jpg"></div>
+            </p>
+            <p>关于集群的锁查看方式采用gcadmin
+                showlock，集群有表锁是正常的（只是代表表当前有对应的进程在运行），所以在发现有锁运行很久且没释放的情况下，首先是需要去找到对应的运行任务，分析运行任务SQL是否异常（比如是否有笛卡尔积，是否复杂关联的表分布有异、SQL写的是否足够优化），如果确认需要人工强制释放，可以用show
+                (full) processlist找到对应的任务，然后对任务进行kill，稍等一下锁就会自动释放。</p>
+            <p> PS：注意找找寻对应任务时，需要到每个节点上查找,而不是只看一个节点没有就强制做其他操作，另外还需要gncli进入节点层进行同样的排查处理。</p>
+            <p>cexecs data: "gncli -ugbase -pXjydGbase8a -e\"show full processlist\""</p>
+            <p>这里另外提供一种强制的处理方法，该方法是确定锁表对应没有任务运行再从后台接口的方式进行锁清除,不能任务没有停止就按照如下方法执行，同时操作时请谨慎。</p>
+            <p>解决方法如下：</p>
+            <p>gcware提供的两个python接口 getlocks() 与 unlocktableforce(tablename, lockid)</p>
+            <p>（1）getlocks()得到的结果信息包括 create time、lockname、lockid、orphan、content、owner、type</p>
+            <p>（2）调用unlocktableforce(tablename, lockid)，其传入参数与getlocks()的返回信息对应关系为：tablename -- lockname、lockid --
+                lockid，执行后清除</p>
+            <p>注意事项：</p>
+            <p>接口 unlocktableforce 中录入参数tablename时需加单引号，</p>
+            <p>如 >>> gcware.unlocktableforce('test.tt580d5f90-b287-4199-b057-e6fbd44b5bfa', 3414444454235340801)</p>
+            <p>1. gcadmin showlock; 查看content字段， 找到锁的id 如： LOCKDMLEX: 8193(ID), 及host=owner</p>
+            <p>2. 客户端登入上面的锁所在的主机的gbase，然后 show full processlist; 找到id= LOCKDMLEX: 8193，然后 kill id ;</p>
+            <p> gccli -h10.238.155.22 -ugbase -pXjydGbase8a （集群层）</p>
+            <p> gncli -h10.238.155.22 -ugbase -pXjydGbase8a （节点层）</p>
+            <p>gbase>show full processlist;</p>
+            <p>gbase> kill id;</p>
+            <p> gccli -h10.238.155.22 -ugbase -pXjydGbase8a -e"show processlist"</p>
+            <p> gncli -h10.238.155.22 -ugbase -pXjydGbase8a -e"show processlist"</p>
+            <p> gccli -h10.238.155.22 -ugbase -pXjydGbase8a -e"show processlist"|grep Query</p>
+            <p> kill id;</p>
+            <p>3.强制kill进程</p>
+            <p>python</p>
+            <p>import gcware</p>
+            <p>gcware.getlocks()</p>
+            <p>然后：</p>
+            <p>gcware.unlocktableforce('xjdss.md_sum_cdr_mc_move_user_08083232323', 3414444454235340801)</p>
+            <p>
+            <div><img src="../images/Databases_Gbase/Gbase_killjsp.png"></div>
+            </p>
+
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

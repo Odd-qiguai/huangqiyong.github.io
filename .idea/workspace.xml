@@ -2,7 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89588d54-72c5-4b0e-bc99-baf49d4adda5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Create_DF.html" beforeDir="false" afterPath="$PROJECT_DIR$/Create_DF.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Databases/Databases_SP.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Databases/Databases_SP.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_FTP.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_FTP.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_NoPasswordSSH.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_NoPasswordSSH.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_Secondary_NN.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_Secondary_NN.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_SshTunnel.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_SshTunnel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_YumSource.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_YumSource.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Leetcode/Leetcode_Sum2numbers.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Leetcode/Leetcode_Sum2numbers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Scala/Scala_CaseClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Scala/Scala_CaseClass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Scala/Scala_Companion.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Scala/Scala_Companion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Scala/Scala_Currying.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Scala/Scala_Currying.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Scala/Scala_Implicit.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Scala/Scala_Implicit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Scala/Scala_Underscore.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Scala/Scala_Underscore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Spark/Spark_Create_DF.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Spark/Spark_Create_DF.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Spark/Spark_DF_RDD.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Spark/Spark_DF_RDD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Spark/Spark_Implicit.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Spark/Spark_Implicit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog_Spark/Spark_MR.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_Spark/Spark_MR.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transit/Transit_Database.html" beforeDir="false" afterPath="$PROJECT_DIR$/Transit/Transit_Database.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transit/Transit_HadoopLinux.html" beforeDir="false" afterPath="$PROJECT_DIR$/Transit/Transit_HadoopLinux.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transit/Transit_Leetcode.html" beforeDir="false" afterPath="$PROJECT_DIR$/Transit/Transit_Leetcode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transit/Transit_Scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/Transit/Transit_Scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transit/Transit_Spark.html" beforeDir="false" afterPath="$PROJECT_DIR$/Transit/Transit_Spark.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/CaseClass/apply.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Scala_CaseClass/apply.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/CaseClass/funtion.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Scala_CaseClass/funtion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/CaseClass/get.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Scala_CaseClass/get.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/CaseClass/serializable.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Scala_CaseClass/serializable.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/CaseClass/twoclass.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Scala_CaseClass/twoclass.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Secondary NameNode/dir.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/HadoopLinux_Secondary_NN/dir.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Secondary NameNode/period.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/HadoopLinux_Secondary_NN/period.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/fulls/01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/fulls/02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/fulls/03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/fulls/04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/04.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/fulls/05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/05.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/fulls/06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_fulls_bg/06.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/html5up-strata(1).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/thumbs/01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/thumbs/02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/thumbs/03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/thumbs/04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/04.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/thumbs/05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/05.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/thumbs/06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/zz_thumbs/06.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,29 +61,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="57" column="44" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Create_DF.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaImplicit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+            <state relative-caret-position="640">
+              <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -47,14 +75,18 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>avatar</find>
-      <find>&lt;br&gt;</find>
       <find>&lt;/section&gt;</find>
       <find>_</find>
       <find />
+      <find>h2</find>
+      <find>3.2.</find>
+      <find>span</find>
+      <find>&lt;br&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;span&gt;_&lt;/span&gt;</replace>
       <replace />
+      <replace>h3</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -63,24 +95,61 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Secondary NameNode.html" />
         <option value="$PROJECT_DIR$/Sum_two_ numbers.html" />
-        <option value="$PROJECT_DIR$/Sum_two_numbers.html" />
         <option value="$PROJECT_DIR$/DataFrame_schema.html" />
-        <option value="$PROJECT_DIR$/Secondary_NameNode.html" />
-        <option value="$PROJECT_DIR$/CaseClass.html" />
-        <option value="$PROJECT_DIR$/StoredProcedure.html" />
-        <option value="$PROJECT_DIR$/Spark_MR.html" />
-        <option value="$PROJECT_DIR$/ScalaUnderscore.html" />
         <option value="$PROJECT_DIR$/ScalaImplicit.html" />
+        <option value="$PROJECT_DIR$/CaseClass.html" />
+        <option value="$PROJECT_DIR$/Companionobject.html" />
+        <option value="$PROJECT_DIR$/Create_DF.html" />
         <option value="$PROJECT_DIR$/DataFrame_RDD.html" />
         <option value="$PROJECT_DIR$/ImportImplicit.html" />
+        <option value="$PROJECT_DIR$/ScalaUnderscore.html" />
+        <option value="$PROJECT_DIR$/Secondary_NameNode.html" />
+        <option value="$PROJECT_DIR$/Spark_MR.html" />
+        <option value="$PROJECT_DIR$/StoredProcedure.html" />
+        <option value="$PROJECT_DIR$/Sum_two_numbers.html" />
+        <option value="$PROJECT_DIR$/Transit_Scala.html" />
+        <option value="$PROJECT_DIR$/Transit_Spark.html" />
+        <option value="$PROJECT_DIR$/Transit_Hadoop.html" />
+        <option value="$PROJECT_DIR$/Transit_Database.html" />
+        <option value="$PROJECT_DIR$/Transit_Leetcode.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_Hadoop.html" />
+        <option value="$PROJECT_DIR$/Currying.html" />
+        <option value="$PROJECT_DIR$/HadoopLinux_FTP.html" />
+        <option value="$PROJECT_DIR$/Blog_Databases/Databases_SP.html" />
+        <option value="$PROJECT_DIR$/Blog_Leetcode/Leetcode_Sum2numbers.html" />
+        <option value="$PROJECT_DIR$/Blog_Scala/Scala_CaseClass.html" />
+        <option value="$PROJECT_DIR$/Blog_Scala/Scala_Implicit.html" />
+        <option value="$PROJECT_DIR$/Blog_Scala/Scala_Underscore.html" />
+        <option value="$PROJECT_DIR$/Blog_Scala/Scala_Companion.html" />
+        <option value="$PROJECT_DIR$/Blog_Scala/Scala_Currying.html" />
+        <option value="$PROJECT_DIR$/Blog_Spark/Spark_Create_DF.html" />
+        <option value="$PROJECT_DIR$/Blog_Spark/Spark_DF_RDD.html" />
+        <option value="$PROJECT_DIR$/Blog_Spark/Spark_MR.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_Spark.html" />
+        <option value="$PROJECT_DIR$/Blog_Spark/Spark_Implicit.html" />
+        <option value="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_FTP.html" />
+        <option value="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_NoPasswordSSH.html" />
+        <option value="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_SshTunnel.html" />
+        <option value="$PROJECT_DIR$/Blog_Databases/Phoenix.html" />
+        <option value="$PROJECT_DIR$/Blog_Databases/Databases_Phoenix.html" />
+        <option value="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_YumSource.html" />
+        <option value="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_Gateone.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_HadoopLinux.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_Database.html" />
+        <option value="$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_Secondary_NN.html" />
+        <option value="$PROJECT_DIR$/Blog_Databases/Databases_Gbase.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_Scala.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_Leetcode.html" />
+        <option value="$PROJECT_DIR$/Blog_Windows/Leetcode_Sum2numbers.html" />
+        <option value="$PROJECT_DIR$/Blog_Windows/Python_Env.html" />
+        <option value="$PROJECT_DIR$/Transit/Transit_Windows.html" />
+        <option value="$PROJECT_DIR$/Blog_Windows/WindowsPythonEnv.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/Create_DF.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="728" />
@@ -93,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -100,11 +170,45 @@
               <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog_Databases" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog_HadoopLinux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog_Leetcode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog_Scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog_Spark" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog_Windows" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huangqiyong.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huangqiyong.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="Transit" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -121,6 +225,16 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\GitRepository\huangqiyong.github.io" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\Transit" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\Blog_Databases" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\Blog_HadoopLinux" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitRepository\huangqiyong.github.io\images\fulls_bg" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\images\thumbs" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\Blog_Scala" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\Blog_Spark" />
+      <recent name="E:\GitRepository\huangqiyong.github.io\Blog_Leetcode" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -134,6 +248,32 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Databases_Phoenix.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/huangqiyong.github.io/Blog_Databases/Databases_Phoenix.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="HadoopLinux_YumSource.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/huangqiyong.github.io/Blog_HadoopLinux/HadoopLinux_YumSource.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Scala_Companion.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/huangqiyong.github.io/Blog_Scala/Scala_Companion.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Spark_Create_DF.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/huangqiyong.github.io/Blog_Spark/Spark_Create_DF.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/huangqiyong.github.io/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.Databases_Phoenix.html" />
+        <item itemvalue="JavaScript Debug.HadoopLinux_YumSource.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.Scala_Companion.html" />
+        <item itemvalue="JavaScript Debug.Spark_Create_DF.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -155,18 +295,21 @@
       <workItem from="1596434355283" duration="10629000" />
       <workItem from="1596452381199" duration="2000" />
       <workItem from="1596506546569" duration="8919000" />
-      <workItem from="1596679590941" duration="1363000" />
+      <workItem from="1596679590941" duration="13517000" />
+      <workItem from="1596765647847" duration="231000" />
+      <workItem from="1596765910485" duration="16284000" />
+      <workItem from="1597024120169" duration="7591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94773000" />
+    <option name="totallyTimeSpent" value="131033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1424" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1472" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -194,6 +337,35 @@
       <window_info anchor="right" id="SciView" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1472" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Tail" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="leetcode" order="4" side_tool="true" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="SciView" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -214,80 +386,231 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Secondary NameNode.html" />
     <entry file="file://$PROJECT_DIR$/Sum_two_ numbers.html" />
-    <entry file="file://$PROJECT_DIR$/Secondary_NameNode.html">
+    <entry file="file://$PROJECT_DIR$/Blog_Leetcode/Leetcode_Sum2numbers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        <state relative-caret-position="225">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Spark_MR.html">
+    <entry file="file://$PROJECT_DIR$/Blog_Scala/Scala_Implicit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Scala/Scala_Underscore.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Scala/Scala_Companion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Spark/Spark_MR.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Spark/Spark_DF_RDD.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Spark/Spark_Create_DF.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Spark/Spark_Implicit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_FTP.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+          <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StoredProcedure.html">
+    <entry file="file://$PROJECT_DIR$/Blog_Scala/Scala_Currying.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="250">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaUnderscore.html">
+    <entry file="file://$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_NoPasswordSSH.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_SshTunnel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Databases/Databases_SP.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_YumSource.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Databases/Databases_Phoenix.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <caret line="38" column="42" lean-forward="true" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CaseClass.html">
+    <entry file="file://$PROJECT_DIR$/images/Databases_Gbase/Gbase_f.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Scala/Scala_CaseClass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325">
+          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_thumbs/avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_Gateone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_fulls_bg/bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_thumbs/02.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_thumbs/03.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_thumbs/05.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_thumbs/01.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_fulls_bg/01.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_fulls_bg/02.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_fulls_bg/03.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/zz_fulls_bg/05.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_HadoopLinux/HadoopLinux_Secondary_NN.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="47" column="15" lean-forward="true" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Databases_Gbase/Gbase_load.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Databases_Gbase/Gbase_killjsp.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Databases/Databases_Gbase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transit/Transit_HadoopLinux.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <caret line="43" column="27" lean-forward="true" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImportImplicit.html">
+    <entry file="file://$PROJECT_DIR$/Transit/Transit_Spark.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="54" column="43" lean-forward="true" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+        <state relative-caret-position="575">
+          <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sum_two_numbers.html">
+    <entry file="file://$PROJECT_DIR$/Transit/Transit_Scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        <state relative-caret-position="650">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataFrame_RDD.html">
+    <entry file="file://$PROJECT_DIR$/Transit/Transit_Database.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
+        <state relative-caret-position="575">
+          <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transit/Transit_Leetcode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog_Windows/WindowsPythonEnv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transit/Transit_Windows.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="57" column="44" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaImplicit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Create_DF.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="640">
+          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
         </state>
       </provider>
     </entry>
