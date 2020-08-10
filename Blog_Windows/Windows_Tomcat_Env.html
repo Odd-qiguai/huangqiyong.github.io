@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_Leetcode.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <!-- 2020-08-10 -->
+        <h2>Tomcat安装配置</h2>
+        <section>
+            <p> 一、安装JDK 1.7</p>
+            <p>    1、添加环境变量：在 我的电脑->属性->高级->环境变量</p>
+            <p>    2、新建系统变量，变量名：JAVA_HOME  变量值：C:\Program Files\Java\jdk1.7.0 (JDK的安装目录)</p>
+            <p>    3、在原有的系统变量 Path后面加上英文分号，再添加%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\jre\bin; 不要删除原来的。看清楚，它们之间的分号，是英文的分号。</p>
+            <p>    4、重启电脑生效（因为添加的是系统变量，如果你的系统是win7，则不需要重启）。</p>
+            <p>    4、测试JDK是否安装成功，运行->cmd ->D:  进入D盘，输入javac  看能否出来很多命令，出来则说明JDK配置成功。</p>
+            <p>   二、Tomcat 7.0的安装配置</p>
+            <p>    1、Tomcat 7.0 的免安装版的配置(假如将Tomcat 解压到C:\Program Files目录，目录结构为：C:\Program Files\apache-tomcat-7.0.11</p>
+            <p>           1、添加环境变量：在 我的电脑->属性->高级->环境变量</p>
+            <p>           2、新建系统变量，变量名：CATALINA_HOME  变量值：C:\Program Files\apache-tomcat-7.0.11 (Tomcat 解压到的目录)。</p>
+            <p>           3、在系统变量  Path的最后面添加%CATALINA_HOME%\lib;%CATALINA_HOME%\lib\servlet-api.jar;%CATALINA_HOME%\lib\jsp-api.jar   注意它们之间的分号，一定是英文的分号。</p>
+            <p>           4、Tomcat 7.0的管理员的配置，进入C:\Program Files\apache-tomcat-7.0.11（Tomcat目录）下的conf目录，编辑tomcat-users.xml，找到最后的：</p>
+            <p>                                     <!--</p>
+<p>                                           <role rolename="tomcat"/></p>
+<p>                                           <role rolename="role1"/></p>
+<p>                                           <user username="tomcat" password="tomcat" roles="tomcat"/></p>
+<p>                                           <user username="both" password="tomcat" roles="tomcat,role1"/></p>
+<p>                                           <user username="role1" password="tomcat" roles="role1"/></p>
+<p>                                      --></p>
+            <p>                                  在上面这段后面  添加上：</p>
+            <p>                                            <role rolename="manager-gui"/></p>
+            <p>                                            <role rolename="admin-gui"/></p>
+            <p>                                            <user username="admin" password="admin888" roles="admin-gui"/></p>
+            <p>                                            <user username="tomcat" password="tomcat" roles="manager-gui"/></p>
+            <p>                                 红色为添加部分。  到这应该知道我们添加的管理员的用户名和密码是多少了吧！</p>
+            <p>           5、进入Tomcat 目录下的bin目录，双击startup.bat   启动Tomcat  在命令行窗口会出来英文提示。</p>
+            <p>           6、浏览器输入：http://localhost:8080  可以看到Tomcat的欢迎页面就说明配置成功了，点击右上角上manager连接，输入上面配置的用户名和密码，就可以进入管理页面。</p>
+            <p>如果按照以上配置不能启动，dos窗口一闪而过的话，说明java环境变量配置有问题，请检查。</p>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

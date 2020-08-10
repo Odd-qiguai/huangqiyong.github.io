@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_HadoopLinux.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>kafka命令行参数</h2>
+        <section>
+            <p>基于redhat版本,如何在 redhat 中安装、配置并保护 FTP 服务器，从而拥有强大的安全性，能够防范 FTP 漏洞</p>
+            <p>安装路径：</p>
+            <p>cd /opt/cloudera/parcels/KAFKA-4.1.0-1.4.1.0.p0.4/lib/kafka</p>
+            <p>启动zk：</p>
+            <p>nohup bin/zookeeper-server-start.sh config/zookeeper.properties &</p>
+            <p>启动server: </p>
+            <p>nohup bin/kafka-server-start.sh config/server.properties &</p>
+            <p>创建topic：</p>
+            <p>bin/kafka-topics.sh --create --bootstrap-server 192.168.22.115:9092 --replication-factor 1 --partitions 1 --topic qytest</p>
+            <p>查看list：</p>
+            <p>bin/kafka-topics.sh --list --bootstrap-server 192.168.22.115:9092</p>
+            <p>运行生产者：</p>
+            <p>bin/kafka-console-producer.sh --broker-list 192.168.22.115:9092 --topic qytest</p>
+            <p>启动消费者：</p>
+            <p>bin/kafka-console-consumer.sh --bootstrap-server 192.168.22.115:9092 --topic qytest --from-beginning</p>
+            <p>删除topic：</p>
+            <p>bin/kafka-topics.sh --delete --zookeeper node01:2181 --topic test</p>
+            <p>描述主题：</p>
+            <p>bin/kafka-topics.sh --describe --bootstrap-server 192.168.22.115:9092 --topic qytest</p>
+        </section>
+
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>

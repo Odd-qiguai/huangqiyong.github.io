@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_Database.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Hive的参数说明</h2>
+        <section>
+<p>hive是基于Hadoop的一个数据仓库工具，用来进行数据提取、转化、加载，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据的机制。hive数据仓库工具能将结构化的数据文件映射为一张数据库表，并提供SQL查询功能，能将SQL语句转变成MapReduce任务来执行。</p>
+<p>以下记录些用过的hive的常规的数据库操作以及配置参数：</p>
+<p>进入beeline：</p>
+<p>beeline  -u "jdbc:hive2://192.168.22.114:10000/xiamen_air_adl_yaotk"</p>
+<p>beeline -u 'jdbc:hive2://xmncdhtest1:10000/ods'</p>
+<p>重启hiveserver2：</p>
+<p>lsof -i:10000</p>
+<p>nohup hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000 > /dev/null 2>&1 &</p>
+<p>select from_unixtime(unix_timestamp('20171205','yyyyMMdd'),'yyyy-MM-dd') from dual;</p>
+<p>添加分区：</p>
+<p>alter table mid.sour_m_moa_oalz_info_day add  if not exists  partition  (ptport='1003',ptdate='201804') location '/user/newland/sour_m_moa/SOUR_M_MOA_OALZ_INFO_DAY/1001/201708/';</p>
+<p>添加全部分区：MSCK REPAIR TABLE table_name;</p>
+<p>insert overwrite directory  '/'		抽取到HDFS	(row format delimited fields terminated by "\t")</p>
+<p>insert overwrite local directory '/'	抽取到本地</p>
+<p>create table table_name as		创建临时表（内部表）</p>
+<p>create external table			创建外部表</p>
+<p>insert into table table_name		表数据添加到表中</p>
+<p>create  schema				创建库</p>
+<p>insert overwrite table table_name	partition(ptdate='$ymdh2',pthour='$ymdh3')	导入数据指定分区</p>
+<p>建表语句：</p>
+<p>create external table qytest (</p>
+<p> lac string,</p>
+<p> ci string)</p>
+<p>PARTITIONED BY (</p>
+<p> ptdate string)</p>
+<p>row format delimited</p>
+<p>  fields terminated by '\001'</p>
+<p>  lines terminated by '\n'</p>
+<p>stored as parquet\textfile</p>
+<p>  location '/user/newland/20181214';</p>
+<p>抽取：insert overwrite directory  '/tmp/qy'</p>
+<p>select *……</p>
+<p>时间转换</p>
+<p>from_unixtime(unix_timestamp(substring(start_time,1,10),'yyyy-mm-dd'),'yyyymmdd')</p>
+<p>UDF自定义函数：</p>
+<p>show functions;</p>
+<p>desc function mid.gnurludf;</p>
+<p>drop function mid.gnurludf;</p>
+<p>list jar;</p>
+<p>delete jar ***;</p>
+<p>create  function mid.gnurludf AS 'huaat.GnUrlUdf' USING JAR 'hdfs:/user/newland/mid_sum_cont/UDF/nl_bi_gnurl_udf.jar';</p>
+<p>select mid.gnurludf("HTTP","mp.weixin.qq.com","/s?__biz=MzA4NDI3NjcyNA==&mid=2649400727&idx=2") from mid.syn_r_user_content_pref_m;</p>
+<p>HUE:</p>
+<p>udap01：/app/hue-master</p>
+<p>kill掉hue的2个进程</p>
+<p>服务启动需要bduser用户来启动，启动命令：</p>
+<p>cd /app/hue-master/build/env/bin/</p>
+<p>nohup ./supervisor &</p>
+<h3>HIVE参数配置:</h3>
+<pre>
+set mapreduce.job.queuename=root.bdoc.renter_1.renter_15.renter_21.renter_24.dev_33;
+
+set hive.exec.reducers.max=150;
+set mapreduce.reduce.java.opts= -Xmx45240m ;
+set mapreduce.map.memory.mb=5120;
+set mapreduce.reduce.memory.mb=10240;
+set mapreduce.task.io.sort.mb=1024;
+
+set mapred.max.split.size=536870912;
+set mapred.min.split.size.per.node=134217728;
+set mapred.min.split.size.per.rack=134217728;
+set hive.input.format=org.apache.hadoop.hive.ql.io.CombineHiveInputFormat;
+
+set hive.exec.map.max=400;
+set hive.optimize.index.filter=true;
+set mapred.task.timeout=3000000;
+set hive.auto.convert.join=false;//动态添加分区
+set hive.map.aggr=true;
+set hive.groupby.skewindata=true;
+set hive.exec.dynamic.partition.mode=nonstrict; //动态添加分区
+set hive.exec.dynamic.partition=true;
+set hive.exec.max.dynamic.partitions.pernode=100000;
+set hive.merge.mapfiles = true;
+set hive.merge.mapredfiles = true;
+set hive.merge.smallfiles.avgsize = 2147483648;
+set hive.merge.size.per.task = 524288000;
+set hive.vectorized.execution.enabled=false;
+
+HIVE自带UDF函数：
+set hive.exec.dynamici.partition=true;  --开启动态分区，默认是false
+set hive.exec.dynamic.partition.mode=nonstrict; --开启允许所有分区都是动态的，否则必须要有静态分区才能使用。
+
+set hive.cli.print.header=true; # 打印列名
+set yarn.app.mapreduce.am.command-opts=-Xmx8192m -Djava.io.tmpdir=./tmp;
+1. Map输入合并小文件：
+set mapred.max.split.size=256000000;  #每个Map最大输入大小
+set mapred.min.split.size.per.node=100000000; #一个节点上split的至少的大小
+set mapred.min.split.size.per.rack=100000000; #一个交换机下split的至少的大小
+set hive.input.format=org.apache.Hadoop.hive.ql.io.CombineHiveInputFormat;  #执行Map前进行小文件合并
+在开启了org.apache.hadoop.hive.ql.io.CombineHiveInputFormat后，一个data node节点上多个小文件会进行合并，合并文件数由mapred.max.split.size限制的大小决定。
+mapred.min.split.size.per.node决定了多个data node上的文件是否需要合并~
+mapred.min.split.size.per.rack决定了多个交换机上的文件是否需要合并~
+2.Map输出合并：
+set hive.merge.mapfiles = true #在Map-only的任务结束时合并小文件
+set hive.merge.mapredfiles = true #在Map-Reduce的任务结束时合并小文件
+set hive.merge.size.per.task = 256*1000*1000 #合并文件的大小
+set hive.merge.smallfiles.avgsize=16000000 #当输出文件的平均大小小于该值时，启动一个独立的map-reduce任务进行文件merge
+
+mapreduce.job.name  作业名称
+mapreduce.job.priority NORMAL 作业优先级
+yarn.app.mapreduce.am.resource.mb 1536 MR ApplicationMaster占用的内存量
+yarn.app.mapreduce.am.resource.cpu-vcores 1 MR ApplicationMaster占用的虚拟CPU个数
+mapreduce.am.max-attempts 2 MR ApplicationMaster最大失败尝试次数
+mapreduce.map.memory.mb 1024 每个Map Task需要的内存量
+mapreduce.map.cpu.vcores 1 每个Map Task需要的虚拟CPU个数
+mapreduce.map.maxattempts 4 Map Task最大失败尝试次数
+mapreduce.reduce.memory.mb 1024 每个Reduce Task需要的内存量
+mapreduce.reduce.cpu.vcores 1 每个Reduce Task需要的虚拟CPU个数
+mapreduce.reduce.maxattempts 4 Reduce Task最大失败尝试次数
+mapreduce.map.speculative FALSE 是否对Map Task启用推测执行机制
+mapreduce.reduce.speculative FALSE 是否对Reduce Task启用推测执行机制
+mapreduce.job.queuename default 作业提交到的队列
+mapreduce.task.io.sort.mb 100 任务内部排序缓冲区大小
+mapreduce.map.sort.spill.percent 0.8 Map阶段溢写文件的阈值（排序缓冲区大小的百分比）
+mapreduce.reduce.shuffle.parallelcopies 5 Reduce Task启动的并发拷贝数据的线程数目
+</pre>
+        </section>
+
+
+        <section>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
