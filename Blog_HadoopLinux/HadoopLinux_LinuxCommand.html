@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_HadoopLinux.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>Linux实用命令记录</h2>
+        <section>
+            <h5>记录一些实用但不常用的命令操作，方便后续操作集群所需</h5>
+<pre>
+ll -lrt
+ntp时间：restrict default nomodify
+按端口查找：lsof -i :xxxx
+按文件名查找文件：find ./scpall -name ""
+替换：sed -i 's/_/!/g'  000000_0
+测底删除： -rm -r -skipTrash
+tar解压：tar zxvf FileName.tar　　压缩：tar czvf FileName.tar DirName
+gz解压：gunzip FileName.gz		gzip -d FileName.gz	gz压缩：gzip FileName
+zip解压：unzip FileName.zip		压缩：zip -r 压缩后名称 压缩文件
+war解压：jar xvf FileName.war
+scp拷贝：scp -r hqy@192.168.1.66:/1 /2
+查看这级目录文件的大小：sudo du -h --max-depth=1  ./
+进入impala：impala-shell -i w-ms2/ms3
+使用某用户执行一条命令：sudo su - gbase -c
+查看端口监听和进程号：sudo netstat -nap |grep 8080
+端口通不通：nc -z -w 1 10.242.215.*** 11302
+开机启动：/etc/rc.local
+etc 目录打包成为 etc.tar，并以gzip 压缩：tar -zcf ./etc.tar.gz /etc
+根据名称查找根目录下的filename.txt文件：find / -name filename.txt
+hive+权限2次：hadoop fs -setfacl -R -m default:user:newland:rwx /tmp/loadtogbase
+ps -ef |grep -v 'DvChartDomainJobMain'  | awk '{print $2}'  | xargs kill -9
+ll  |grep -v Feb| awk '{print $9}'|xargs sudo rm -r
+执行java程序，debug打开：/jdk1.8.0_171/jre/bin/java -Djava.security.krb5.conf=/app/xjProject/flume/qyjdbc/conf/krb5.conf -Djavax.security.auth.useSubjectCredsOnly=false -D
+sun.security.krb5.debug=true -classpath $CLASSPATH  $APP_MAINCLASS
+后台：nohup ./tishu.sh  $1 &
+进入beeline:
+beeline  -u "jdbc:hive2://192.168.22.***:10000/库名"
+beeline -u 'jdbc:hive2://主机名:10000/库名'
+
+basename [目录] 取出最后一个目录或者文档
+dirname [目录] 与basename相反，取前面部分
+tac 最后一行开始显示档案内容(反过来的cat)
+less [档案名] 类似more，但可用[PageUp][PageDown]前后翻页。
+nl [档案名] 显示时输出行号,类似cat -n
+od [档案名] 二进制方式读取档案内容
+
+查看防火墙状态：	service iptables status
+暂时关闭防火墙：	sudo /etc/init.d/iptables stop
+永久关闭防火墙：	sudo chkconfig iptables off;
+
+查看selinux状态：	 /usr/sbin/sestatus -v | grep status
+暂时关闭selinux：	sudo setenforce 0
+永久关闭selinux：	sudo vi /etc/selinux/config，将其中的 SELINUX 值设置为 SELINUX=disabled
+vi /etc/yum/pluginconf.d/refresh-packagekit.conf	关闭packagekit
+远程调式：export SPARK_SUBMIT_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=34463
+
+SSH会话设置：ssh -t  -o ServerAliveInterval=60  -p 22 bduser@10.242.215.*** " sudo su - newland -c 'export TMOUT=0' +命令“;
+hadoop 批量快速杀掉某个用户的任务
+for i in `hadoop job -list | grep -w  newland| awk '{print $1}' | grep job_`; do { hadoop job -kill $i; }&  done
+</pre>
+        </section>
+
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
