@@ -13,19 +13,24 @@
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="../Transit/Transit_Python.html" class="image avatar" target="_parent">
+        <a href="../Transit/Transit_Scala.html" class="image avatar" target="_parent">
             <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
         <h1>
             <strong>I am HuangQiYong</strong>
         </h1>
     </div>
+    <style>
+        span {
+            color: red
+        }
+    </style>
 </header>
 <!-- Main -->
 <div id="main">
     <!-- One -->
     <section id="One">
         <!-- 2020-08-10 -->
-        <h2>python 写入成功但是数据为空的问题</h2>
+        <h2>Scala 写入成功但是数据为空的问题</h2>
         <section>
 <pre>
     调用write方法写入数据后，程序结束，但是数据没进文件，debug之后发现是在缓冲区内没写入，调用flush方法即可。
@@ -35,7 +40,7 @@
 <code>import java.io.{File, FileWriter}
     var writer: FileWriter = new FileWriter("D:\\", true)
     writer.write("testdate")
-    writer.flush()
+    <span>writer.flush()</span>
     writer.close()
 </code>
 </pre>
