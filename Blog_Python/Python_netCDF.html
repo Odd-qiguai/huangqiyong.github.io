@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_Python.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <!-- 2020-08-10 -->
+        <h2>python读取与处理netcdf数据</h2>
+        <section>
+<pre>
+    NetCDF全称为network Common Data Format，中文译法为“网络通用数据格式”。
+    netcdf文件开始的目的是用于存储气象科学中的数据，现在已经成为许多数据采集软件的生成文件的格式。
+    函数的自变量x,y,z等在netcdf中叫做维(dimension) 或坐标轴(axix)，
+    函数值value在netcdf中叫做变量(Variables).
+    自变量和函数值在物理学上的一些性质，在netcdf中就叫属性(Attributes).
+
+    读取nc文件：
+    <code>from netCDF4 import Dataset
+
+file_path='E:\\nc_file\\2\\tmin.2020.nc'
+dst = Dataset(file_path)
+print(dst)</code>
+    程序显示:
+    <img src="../images/Python_netCDF/print_dst.png">
+
+    查看nc文件中的变量：
+    <code>for i in dst.variables.keys():
+	print(i)</code>
+    程序显示:
+    <img src="../images/Python_netCDF/print_var.png">
+
+    查看每个变量的信息：
+    <code>print(dst.variables['lat'])</code>
+    程序显示:
+    <img src="../images/Python_netCDF/print_lat.png">
+
+    查看每个变量的属性：
+    <code>print(dst.variables['lat'].ncattrs())</code>
+    程序显示:
+    <img src="../images/Python_netCDF/print_nca.png">
+
+    读取数值：
+    <code>print(dst.variables['lat'][:])</code>
+    程序显示:
+    <img src="../images/Python_netCDF/print_4.png">
+
+    全部CODE：
+<code>from netCDF4 import Dataset
+
+file_path='E:\\nc_file\\2\\tmin.2020.nc'
+
+#读取nc文件
+dst = Dataset(file_path)
+#查看nc文件中的变量
+for i in dst.variables.keys():
+	print(i)
+#查看每个变量的信息
+print(dst.variables['lat'])
+print(dst.variables['lon'])
+print(dst.variables['time'])
+#查看每个变量的属性
+print(dst.variables['lat'].ncattrs())
+print(dst.variables['lon'].ncattrs())
+print(dst.variables['time'].ncattrs())
+#读取数值
+print(dst.variables['lat'][:])
+print(dst.variables['lon'][:])
+print(dst.variables['time'][:])
+
+#转csv文件
+lat = dst.variables['lat'][:]
+df = pd.DataFrame(lat)
+df.to_csv('D:\\pre.csv', sep=',')
+</code>
+</pre>
+
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
