@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<html>
+
+<head>
+    <title>奇怪 | Odd-Blog</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+
+<body class="is-preload">
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="../Transit/Transit_Leetcode.html" class="image avatar" target="_parent">
+            <img src="../images/zz_thumbs/avatar.jpg" alt=""/></a>
+        <h1>
+            <strong>I am HuangQiYong</strong>
+        </h1>
+    </div>
+    <style>
+        p {
+            font-size: 18px
+        }
+
+        span {
+            color: red
+        }
+    </style>
+</header>
+<!-- Main -->
+<div id="main">
+    <!-- One -->
+    <section id="One">
+        <h2>正态分布随机数</h2>
+        <section>
+            <p>一般我们经常使用的随机数函数 Math.random() 产生的是服从均匀分布的随机数，能够模拟等概率出现的情况，但现实生活中更多的随机现象是符合正态分布的，例如20岁成年人的体重分布等。
+            </p>
+            <pre>
+方差越大，钟形越扁平，方差越小越陡:
+    密度函数图像关于均值对称。
+    在x=μ±σ处，曲线有拐点。
+    函数曲线下68.26%的面积在平均数左右的一个标准差σ的区间内。
+    95.44%的面积在平均数左右两个标准差2σ的区间内。
+    99.74%的面积在平均数左右三个标准差3σ的区间内。
+
+
+<p>下面利用nextGaussian()方法用于获取下一个伪高斯(“正常地”)分布的均值为0.0，标准差为1.0从此随机数生成器的序列的double值。</p>
+            <img src="../images/Leetcode_NormalDis/ndjp.png">
+            <code>import java.util.Random
+/** *
+    * 正态分布算法2
+    *
+    * @param mean    均值
+    * @param std_dev 方差
+    * @return 正态分布随机数
+    */
+  def getND2(mean: Double, std_dev: Double): Double = {
+    val randomno = new Random
+    Math.sqrt(std_dev) * randomno.nextGaussian + mean
+  }
+            </code>
+            </pre>
+        </section>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://twitter.com/home" class="icon brands fa-twitter">
+                    <span class="label">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/Odd-qiguai" class="icon brands fa-github">
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <div class="icon solid fa-envelope">
+                    <span class="label">Email</span></div>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>Design:294545122@qq.com</li>
+        </ul>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.poptrox.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script type="text/javascript" language="javascript">function over() {
+    document.getElementById("contain").style.innerHTML = "2";
+}
+
+function out() {
+    document.getElementById("contain").style.innerHTML = "1";
+}</script>
+</body>
+
+</html>
